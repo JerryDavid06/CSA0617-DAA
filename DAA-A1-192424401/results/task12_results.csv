@@ -1,0 +1,3 @@
+experiment,algorithm,n,target_type,target,found,preprocessing_ms,search_ms,total_ms,key_operations
+task12_50000_searches,Recursive Binary Search,1000000,MIXED_50K,"50,000 deterministic queries",25000/50000,251.7434,194.9496,446.6929,973840
+task12_50000_searches,Hash Table Search,1000000,MIXED_50K,"50,000 deterministic queries",25000/50000,135.1444,12.6440,147.7883,50000
