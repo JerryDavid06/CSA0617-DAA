@@ -1,7 +1,0 @@
-DAA A1 — CLASSROOM SUBMISSION PACKAGE
-
-1. Upload: DAA_A1_192424401.pdf
-2. Upload: DAA_A1_192424401_code.zip
-3. Paste the GitHub repository URL in the private comment or attach a text file containing it.
-4. Verify that the GitHub repository has at least 5 meaningful commits before the deadline.
-5. Verify all screenshots, four dataset sizes, results.csv, graphs, and Task-12 50,000-search benchmark are present.
