@@ -1,0 +1,80 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "repeats": 3,
+  "quicksort": [
+    {
+      "n": 256,
+      "first_comparisons": 32640,
+      "first_seconds": 0.002913299947977066,
+      "improved_seconds": 0.0007477998733520508
+    },
+    {
+      "n": 512,
+      "first_comparisons": 130816,
+      "first_seconds": 0.012332499958574772,
+      "improved_seconds": 0.001496800221502781
+    },
+    {
+      "n": 1024,
+      "first_comparisons": 523776,
+      "first_seconds": 0.03806930035352707,
+      "improved_seconds": 0.0024604001082479954
+    },
+    {
+      "n": 2048,
+      "first_comparisons": 2096128,
+      "first_seconds": 0.15147399995476007,
+      "improved_seconds": 0.00714229978621006
+    }
+  ],
+  "matrices": [
+    {
+      "n": 16,
+      "classical_seconds": 0.0010930998250842094,
+      "hybrid_seconds": 0.0011753002181649208,
+      "multiplications": 4096,
+      "additions_subtractions": 3840,
+      "padded_size": 16
+    },
+    {
+      "n": 32,
+      "classical_seconds": 0.010573199950158596,
+      "hybrid_seconds": 0.013191699981689453,
+      "multiplications": 28672,
+      "additions_subtractions": 31488,
+      "padded_size": 32
+    },
+    {
+      "n": 64,
+      "classical_seconds": 0.10272399988025427,
+      "hybrid_seconds": 0.07961639994755387,
+      "multiplications": 200704,
+      "additions_subtractions": 238848,
+      "padded_size": 64
+    },
+    {
+      "n": 128,
+      "classical_seconds": 0.6450356002897024,
+      "hybrid_seconds": 0.5279340003617108,
+      "multiplications": 1404928,
+      "additions_subtractions": 1745664,
+      "padded_size": 128
+    }
+  ],
+  "calculations": {
+    "merge_height": 24,
+    "merge_nlogn": 232534966.64211535,
+    "merge_worst": 223222785,
+    "binary_loop_max": 24,
+    "binary_total_max": 25,
+    "quick_worst": 4999950000,
+    "quick_random_expected": 2018053.4062649454,
+    "strassen_1024_multiplications": 282475249,
+    "conventional_1024_multiplications": 1073741824,
+    "strassen_1024_additions": 1688560038,
+    "conventional_1024_additions": 1072693248,
+    "hybrid_1024_cutoff64_multiplications": 629407744,
+    "strassen_multiplication_reduction_percent": 73.69244238361716
+  }
+}
