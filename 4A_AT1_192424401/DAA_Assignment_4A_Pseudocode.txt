@@ -1,0 +1,245 @@
+ALGORITHM LoadVehicle(Packages, Capacity)
+INPUT: n packages with ID, positive weight and nonnegative value;
+       nonnegative vehicle capacity
+OUTPUT: fraction of every package selected and total loaded value
+BEGIN
+    FOR i ← 1 TO n DO
+        Fraction[i] ← 0
+        Ratio[i] ← Value[i] / Weight[i]
+    END FOR
+    SORT package indices by decreasing Ratio
+         RESOLVE ratio ties by original input position
+    Remaining ← Capacity
+    TotalValue ← 0
+    k ← 1
+    WHILE k ≤ n AND Remaining > 0 DO
+        i ← kth package index in the sorted order
+        IF Weight[i] ≤ Remaining THEN
+            Fraction[i] ← 1
+        ELSE
+            Fraction[i] ← Remaining / Weight[i]
+        END IF
+        Remaining ← Remaining - Fraction[i] × Weight[i]
+        TotalValue ← TotalValue + Fraction[i] × Value[i]
+        k ← k + 1
+    END WHILE
+    RETURN Fraction, TotalValue
+END
+
+ALGORITHM ScheduleProfitableJobs(Jobs)
+INPUT: n independent unit-slot jobs with ID, integer deadline and profit;
+       every job is available at time zero
+OUTPUT: schedule in completion-time slots and maximum total profit
+BEGIN
+    H ← 0
+    FOR EACH job IN Jobs DO
+        H ← MAX(H, job.Deadline)
+    END FOR
+    H ← MIN(n, H)
+    CREATE Schedule[1..H] FILLED WITH EMPTY
+    TotalProfit ← 0
+    SORT Jobs by decreasing Profit; break ties by Job ID
+    FOR EACH job IN Jobs DO
+        IF job.Profit > 0 THEN
+            t ← MIN(job.Deadline, H)
+            WHILE t ≥ 1 AND Schedule[t] ≠ EMPTY DO
+                t ← t - 1
+            END WHILE
+            IF t ≥ 1 THEN
+                Schedule[t] ← job.ID
+                TotalProfit ← TotalProfit + job.Profit
+            END IF
+        END IF
+    END FOR
+    RETURN Schedule, TotalProfit
+END
+
+ALGORITHM SelectCargo(Items, W)
+INPUT: n items with positive integer weight and nonnegative value;
+       nonnegative integer capacity W
+OUTPUT: selected item IDs, total weight and optimum value
+BEGIN
+    CREATE DP[0..n, 0..W] FILLED WITH 0
+    FOR i ← 1 TO n DO
+        FOR c ← 0 TO W DO
+            DP[i, c] ← DP[i - 1, c]
+            IF Weight[i] ≤ c THEN
+                Include ← Value[i] + DP[i - 1, c - Weight[i]]
+                IF Include > DP[i, c] THEN
+                    DP[i, c] ← Include
+                END IF
+            END IF
+        END FOR
+    END FOR
+    Selected ← EMPTY LIST
+    c ← W
+    i ← n
+    WHILE i ≥ 1 DO
+        IF DP[i, c] > DP[i - 1, c] THEN
+            APPEND ID[i] TO Selected
+            c ← c - Weight[i]
+        END IF
+        i ← i - 1
+    END WHILE
+    REVERSE Selected
+    TotalWeight ← W - c
+    RETURN Selected, TotalWeight, DP[n, W]
+END
+
+ALGORITHM WordBreak(Text, Dictionary)
+INPUT: Text of length n and a collection of valid nonempty words
+OUTPUT: TRUE exactly when the whole Text can be segmented
+BEGIN
+    DP[0] ← TRUE
+    FOR i ← 1 TO n DO
+        DP[i] ← FALSE
+        FOR j ← 0 TO i - 1 DO
+            IF DP[j] = TRUE AND
+               SUBSTRING(Text, j, i) IS IN Dictionary THEN
+                DP[i] ← TRUE
+                BREAK
+            END IF
+        END FOR
+    END FOR
+    RETURN DP[n]
+END
+
+ALGORITHM GreedyShortestPaths(V, E, Source)
+INPUT: directed graph with nonnegative edge weights and Source in V
+OUTPUT: shortest distances Dist and predecessor array Pred
+BEGIN
+    FOR EACH vertex v IN V DO
+        Dist[v] ← ∞
+        Pred[v] ← NONE
+    END FOR
+    Dist[Source] ← 0
+    Settled ← EMPTY SET
+    WHILE |Settled| < |V| DO
+        u ← vertex outside Settled with minimum Dist
+        RESOLVE distance ties by vertex label
+        IF Dist[u] = ∞ THEN
+            BREAK
+        END IF
+        ADD u TO Settled
+        FOR EACH edge (u, v, w) LEAVING u DO
+            IF v IS NOT IN Settled THEN
+                Candidate ← Dist[u] + w
+                IF Candidate < Dist[v] THEN
+                    Dist[v] ← Candidate
+                    Pred[v] ← u
+                END IF
+            END IF
+        END FOR
+    END WHILE
+    RETURN Dist, Pred
+END
+
+ALGORITHM RepeatedRelaxation(V, E, Source)
+INPUT: directed weighted graph; negative edges are allowed
+OUTPUT: distances and predecessors, or REACHABLE NEGATIVE CYCLE
+BEGIN
+    FOR EACH vertex v IN V DO
+        Dist[v] ← ∞
+        Pred[v] ← NONE
+    END FOR
+    Dist[Source] ← 0
+    FOR pass ← 1 TO |V| - 1 DO
+        Changed ← FALSE
+        FOR EACH edge (u, v, w) IN E DO
+            IF Dist[u] ≠ ∞ AND Dist[u] + w < Dist[v] THEN
+                Dist[v] ← Dist[u] + w
+                Pred[v] ← u
+                Changed ← TRUE
+            END IF
+        END FOR
+        IF Changed = FALSE THEN
+            BREAK
+        END IF
+    END FOR
+    FOR EACH edge (u, v, w) IN E DO
+        IF Dist[u] ≠ ∞ AND Dist[u] + w < Dist[v] THEN
+            RETURN REACHABLE NEGATIVE CYCLE
+        END IF
+    END FOR
+    RETURN Dist, Pred
+END
+
+ALGORITHM AllPairsShortestPaths(V, E)
+INPUT: vertices v1..vm and directed weighted edges
+OUTPUT: all-pairs distance matrix D and a negative-cycle flag
+BEGIN
+    CREATE D[1..m, 1..m] FILLED WITH ∞
+    FOR i ← 1 TO m DO
+        D[i, i] ← 0
+    END FOR
+    FOR EACH edge (vi, vj, w) IN E DO
+        D[i, j] ← MIN(D[i, j], w)
+    END FOR
+    FOR k ← 1 TO m DO
+        FOR i ← 1 TO m DO
+            FOR j ← 1 TO m DO
+                IF D[i, k] ≠ ∞ AND D[k, j] ≠ ∞ THEN
+                    D[i, j] ← MIN(D[i, j], D[i, k] + D[k, j])
+                END IF
+            END FOR
+        END FOR
+    END FOR
+    NegativeCycle ← FALSE
+    FOR i ← 1 TO m DO
+        IF D[i, i] < 0 THEN
+            NegativeCycle ← TRUE
+        END IF
+    END FOR
+    RETURN D, NegativeCycle
+END
+
+ALGORITHM EnergyAwareSchedule(Jobs)
+INPUT: n fixed-interval jobs with unique ID, Start < Finish and benefit
+OUTPUT: compatible selected IDs and maximum total benefit
+BEGIN
+    SORT Jobs by increasing Finish, then Start, then ID
+    FOR j ← 1 TO n DO
+        P[j] ← LastCompatible(Finish, j, Start[j])
+    END FOR
+    CREATE M[0..n] FILLED WITH 0
+    FOR j ← 1 TO n DO
+        Include ← Benefit[j] + M[P[j]]
+        Exclude ← M[j - 1]
+        IF Include > Exclude THEN
+            M[j] ← Include
+        ELSE
+            M[j] ← Exclude
+        END IF
+    END FOR
+    Selected ← EMPTY LIST
+    j ← n
+    WHILE j ≥ 1 DO
+        IF Benefit[j] + M[P[j]] > M[j - 1] THEN
+            APPEND ID[j] TO Selected
+            j ← P[j]
+        ELSE
+            j ← j - 1
+        END IF
+    END WHILE
+    REVERSE Selected
+    RETURN Selected, M[n]
+END
+
+PROCEDURE LastCompatible(Finish, j, StartOfCurrent)
+INPUT: increasing finish times and current sorted index j
+OUTPUT: greatest i < j with Finish[i] ≤ StartOfCurrent, or 0
+BEGIN
+    Low ← 1
+    High ← j - 1
+    Answer ← 0
+    WHILE Low ≤ High DO
+        Mid ← FLOOR((Low + High) / 2)
+        IF Finish[Mid] ≤ StartOfCurrent THEN
+            Answer ← Mid
+            Low ← Mid + 1
+        ELSE
+            High ← Mid - 1
+        END IF
+    END WHILE
+    RETURN Answer
+END
