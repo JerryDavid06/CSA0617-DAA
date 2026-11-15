@@ -1,0 +1,37 @@
+TASK 3 ROUTING - eight vertices; fifteen baseline directed edges
+Baseline finalisation: ['A', 'B', 'D', 'C', 'E', 'F', 'G', 'H']
+A: distance 0, path ['A'], predecessor None
+B: distance 2, path ['A', 'B'], predecessor A
+C: distance 5, path ['A', 'C'], predecessor A
+D: distance 4, path ['A', 'B', 'D'], predecessor B
+E: distance 6, path ['A', 'B', 'D', 'E'], predecessor D
+F: distance 8, path ['A', 'B', 'D', 'E', 'F'], predecessor E
+G: distance 10, path ['A', 'B', 'D', 'E', 'F', 'G'], predecessor F
+H: distance 12, path ['A', 'B', 'D', 'E', 'F', 'G', 'H'], predecessor G
+Relaxation trace: [{'finalised': 'A', 'distance': 0, 'updates': [{'vertex': 'B', 'old': inf, 'new': 2, 'via': 'A'}, {'vertex': 'C', 'old': inf, 'new': 5, 'via': 'A'}, {'vertex': 'D', 'old': inf, 'new': 9, 'via': 'A'}, {'vertex': 'H', 'old': inf, 'new': 30, 'via': 'A'}]}, {'finalised': 'B', 'distance': 2, 'updates': [{'vertex': 'D', 'old': 9, 'new': 4, 'via': 'B'}, {'vertex': 'E', 'old': inf, 'new': 9, 'via': 'B'}]}, {'finalised': 'D', 'distance': 4, 'updates': [{'vertex': 'E', 'old': 9, 'new': 6, 'via': 'D'}, {'vertex': 'G', 'old': inf, 'new': 11, 'via': 'D'}]}, {'finalised': 'C', 'distance': 5, 'updates': [{'vertex': 'F', 'old': inf, 'new': 15, 'via': 'C'}]}, {'finalised': 'E', 'distance': 6, 'updates': [{'vertex': 'F', 'old': 15, 'new': 8, 'via': 'E'}, {'vertex': 'H', 'old': 30, 'new': 15, 'via': 'E'}]}, {'finalised': 'F', 'distance': 8, 'updates': [{'vertex': 'G', 'old': 11, 'new': 10, 'via': 'F'}]}, {'finalised': 'G', 'distance': 10, 'updates': [{'vertex': 'H', 'old': 15, 'new': 12, 'via': 'G'}]}, {'finalised': 'H', 'distance': 12, 'updates': []}]
+
+Prediction is saved in predictions.json before changed-case execution.
+Negative edge C->B=-4; guarded rejection: Dijkstra requires nonnegative edge weights
+UNSAFE diagnostic distances: {'A': 0, 'B': 2, 'C': 5, 'D': 4, 'E': 6, 'F': 8, 'G': 10, 'H': 12}
+Bellman-Ford distances: {'A': 0, 'B': 1, 'C': 5, 'D': 3, 'E': 5, 'F': 7, 'G': 9, 'H': 11}
+Bellman-Ford passes: [{'pass_number': 1, 'updates': [{'u': 'A', 'v': 'B', 'old': inf, 'new': 2}, {'u': 'A', 'v': 'C', 'old': inf, 'new': 5}, {'u': 'A', 'v': 'D', 'old': inf, 'new': 9}, {'u': 'B', 'v': 'D', 'old': 9, 'new': 4}, {'u': 'B', 'v': 'E', 'old': inf, 'new': 9}, {'u': 'C', 'v': 'B', 'old': 2, 'new': 1}, {'u': 'C', 'v': 'F', 'old': inf, 'new': 15}, {'u': 'D', 'v': 'E', 'old': 9, 'new': 6}, {'u': 'D', 'v': 'G', 'old': inf, 'new': 11}, {'u': 'E', 'v': 'F', 'old': 15, 'new': 8}, {'u': 'E', 'v': 'H', 'old': inf, 'new': 15}, {'u': 'F', 'v': 'G', 'old': 11, 'new': 10}, {'u': 'G', 'v': 'H', 'old': 15, 'new': 12}], 'distances': {'A': 0, 'B': 1, 'C': 5, 'D': 4, 'E': 6, 'F': 8, 'G': 10, 'H': 12}}, {'pass_number': 2, 'updates': [{'u': 'B', 'v': 'D', 'old': 4, 'new': 3}, {'u': 'D', 'v': 'E', 'old': 6, 'new': 5}, {'u': 'E', 'v': 'F', 'old': 8, 'new': 7}, {'u': 'F', 'v': 'G', 'old': 10, 'new': 9}, {'u': 'G', 'v': 'H', 'old': 12, 'new': 11}], 'distances': {'A': 0, 'B': 1, 'C': 5, 'D': 3, 'E': 5, 'F': 7, 'G': 9, 'H': 11}}, {'pass_number': 3, 'updates': [], 'distances': {'A': 0, 'B': 1, 'C': 5, 'D': 3, 'E': 5, 'F': 7, 'G': 9, 'H': 11}}]
+Negative-cycle detection: {'bellman_ford': 'Reachable negative cycle: extra relaxation B->D', 'floyd': 'Negative diagonal: finite all-pairs answers are unsafe'}
+
+Floyd on negative-edge graph WITHOUT the negative cycle:
+[0, 1, 5, 3, 5, 7, 9, 11]
+[inf, 0, inf, 2, 4, 6, 8, 10]
+[inf, -4, 0, -2, 0, 2, 4, 6]
+[inf, inf, inf, 0, 2, 4, 6, 8]
+[inf, inf, inf, inf, 0, 2, 4, 6]
+[inf, inf, inf, inf, inf, 0, 2, 4]
+[inf, inf, inf, inf, inf, inf, 0, 2]
+[inf, inf, inf, inf, inf, inf, inf, 0]
+Warshall (1 reachable, including diagonal):
+[1, 1, 1, 1, 1, 1, 1, 1]
+[0, 1, 0, 1, 1, 1, 1, 1]
+[0, 1, 1, 1, 1, 1, 1, 1]
+[0, 0, 0, 1, 1, 1, 1, 1]
+[0, 0, 0, 0, 1, 1, 1, 1]
+[0, 0, 0, 0, 0, 1, 1, 1]
+[0, 0, 0, 0, 0, 0, 1, 1]
+[0, 0, 0, 0, 0, 0, 0, 1]

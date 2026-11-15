@@ -1,0 +1,59 @@
+TASK 1 WORD WRAP - actual execution
+Text: now we go again | spaces between words count as one character
+Both u^2 and u^3 penalties; final line penalty is zero.
+
+Width=6, power=2, optimum=10
+Line 1: 'now', unused=3, penalty=9
+Line 2: 'we go', unused=1, penalty=1
+Line 3: 'again', unused=1, penalty=0
+Suffix DP: [10, 1, 16, 0, 0]
+Best end indices: [(3, 3), (2, 2), (1, 2), (0, 0)]
+
+Width=7, power=2, optimum=20
+Line 1: 'now', unused=4, penalty=16
+Line 2: 'we go', unused=2, penalty=4
+Line 3: 'again', unused=2, penalty=0
+Suffix DP: [20, 4, 25, 0, 0]
+Best end indices: [(3, 3), (2, 2), (1, 2), (0, 0)]
+
+Width=8, power=2, optimum=4
+Line 1: 'now we', unused=2, penalty=4
+Line 2: 'go again', unused=0, penalty=0
+Suffix DP: [4, 9, 0, 0, 0]
+Best end indices: [(3, 3), (2, 3), (1, 2), (0, 1)]
+
+Width=10, power=2, optimum=1
+Line 1: 'now we go', unused=1, penalty=1
+Line 2: 'again', unused=5, penalty=0
+Suffix DP: [1, 25, 0, 0, 0]
+Best end indices: [(3, 3), (2, 3), (1, 2), (0, 2)]
+
+Width=6, power=3, optimum=28
+Line 1: 'now', unused=3, penalty=27
+Line 2: 'we go', unused=1, penalty=1
+Line 3: 'again', unused=1, penalty=0
+Suffix DP: [28, 1, 64, 0, 0]
+Best end indices: [(3, 3), (2, 2), (1, 2), (0, 0)]
+
+Width=7, power=3, optimum=72
+Line 1: 'now', unused=4, penalty=64
+Line 2: 'we go', unused=2, penalty=8
+Line 3: 'again', unused=2, penalty=0
+Suffix DP: [72, 8, 125, 0, 0]
+Best end indices: [(3, 3), (2, 2), (1, 2), (0, 0)]
+
+Width=8, power=3, optimum=8
+Line 1: 'now we', unused=2, penalty=8
+Line 2: 'go again', unused=0, penalty=0
+Suffix DP: [8, 27, 0, 0, 0]
+Best end indices: [(3, 3), (2, 3), (1, 2), (0, 1)]
+
+Width=10, power=3, optimum=1
+Line 1: 'now we go', unused=1, penalty=1
+Line 2: 'again', unused=5, penalty=0
+Suffix DP: [1, 125, 0, 0, 0]
+Best end indices: [(3, 3), (2, 3), (1, 2), (0, 2)]
+
+Boundary overlong word: A word exceeds the line width; splitting is not enabled
+
+Power-sensitive extra case: {"words": ["xxxxxx", "x", "xx", "xxxxxx", "xxxxxx", "xxxxxxx", "xxxxxxx", "xxxxx"], "width": 14, "squared": {"cost": 59, "lines": [{"words": ["xxxxxx", "x", "xx"], "unused": 3, "penalty": 9}, {"words": ["xxxxxx", "xxxxxx"], "unused": 1, "penalty": 1}, {"words": ["xxxxxxx"], "unused": 7, "penalty": 49}, {"words": ["xxxxxxx", "xxxxx"], "unused": 1, "penalty": 0}], "dp": [59, 9, 25, 50, 0, 49, 0, 0, 0], "trace": [{"start": 7, "best_end": 7, "optimum": 0, "candidates": [{"end": 7, "unused": 9, "line_penalty": 0, "suffix_cost": 0, "total": 0}]}, {"start": 6, "best_end": 7, "optimum": 0, "candidates": [{"end": 6, "unused": 7, "line_penalty": 49, "suffix_cost": 0, "total": 49}, {"end": 7, "unused": 1, "line_penalty": 0, "suffix_cost": 0, "total": 0}]}, {"start": 5, "best_end": 5, "optimum": 49, "candidates": [{"end": 5, "unused": 7, "line_penalty": 49, "suffix_cost": 0, "total": 49}]}, {"start": 4, "best_end": 5, "optimum": 0, "candidates": [{"end": 4, "unused": 8, "line_penalty": 64, "suffix_cost": 49, "total": 113}, {"end": 5, "unused": 0, "line_penalty": 0, "suffix_cost": 0, "total": 0}]}, {"start": 3, "best_end": 4, "optimum": 50, "candidates": [{"end": 3, "unused": 8, "line_penalty": 64, "suffix_cost": 0, "total": 64}, {"end": 4, "unused": 1, "line_penalty": 1, "suffix_cost": 49, "total": 50}]}, {"start": 2, "best_end": 3, "optimum": 25, "candidates": [{"end": 2, "unused": 12, "line_penalty": 144, "suffix_cost": 50, "total": 194}, {"end": 3, "unused": 5, "line_penalty": 25, "suffix_cost": 0, "total": 25}]}, {"start": 1, "best_end": 3, "optimum": 9, "candidates": [{"end": 1, "unused": 13, "line_penalty": 169, "suffix_cost": 25, "total": 194}, {"end": 2, "unused": 10, "line_penalty": 100, "suffix_cost": 50, "total": 150}, {"end": 3, "unused": 3, "line_penalty": 9, "suffix_cost": 0, "total": 9}]}, {"start": 0, "best_end": 2, "optimum": 59, "candidates": [{"end": 0, "unused": 8, "line_penalty": 64, "suffix_cost": 9, "total": 73}, {"end": 1, "unused": 6, "line_penalty": 36, "suffix_cost": 25, "total": 61}, {"end": 2, "unused": 3, "line_penalty": 9, "suffix_cost": 50, "total": 59}]}], "stats": {"states": 8, "candidates": 22, "feasible_candidates": 16, "stored_dp_and_choice_slots": 17}}, "cubic": {"cost": 341, "lines": [{"words": ["xxxxxx", "x"], "unused": 6, "penalty": 216}, {"words": ["xx", "xxxxxx"], "unused": 5, "penalty": 125}, {"words": ["xxxxxx", "xxxxxxx"], "unused": 0, "penalty": 0}, {"words": ["xxxxxxx", "xxxxx"], "unused": 1, "penalty": 0}], "dp": [341, 27, 125, 344, 0, 343, 0, 0, 0], "trace": [{"start": 7, "best_end": 7, "optimum": 0, "candidates": [{"end": 7, "unused": 9, "line_penalty": 0, "suffix_cost": 0, "total": 0}]}, {"start": 6, "best_end": 7, "optimum": 0, "candidates": [{"end": 6, "unused": 7, "line_penalty": 343, "suffix_cost": 0, "total": 343}, {"end": 7, "unused": 1, "line_penalty": 0, "suffix_cost": 0, "total": 0}]}, {"start": 5, "best_end": 5, "optimum": 343, "candidates": [{"end": 5, "unused": 7, "line_penalty": 343, "suffix_cost": 0, "total": 343}]}, {"start": 4, "best_end": 5, "optimum": 0, "candidates": [{"end": 4, "unused": 8, "line_penalty": 512, "suffix_cost": 343, "total": 855}, {"end": 5, "unused": 0, "line_penalty": 0, "suffix_cost": 0, "total": 0}]}, {"start": 3, "best_end": 4, "optimum": 344, "candidates": [{"end": 3, "unused": 8, "line_penalty": 512, "suffix_cost": 0, "total": 512}, {"end": 4, "unused": 1, "line_penalty": 1, "suffix_cost": 343, "total": 344}]}, {"start": 2, "best_end": 3, "optimum": 125, "candidates": [{"end": 2, "unused": 12, "line_penalty": 1728, "suffix_cost": 344, "total": 2072}, {"end": 3, "unused": 5, "line_penalty": 125, "suffix_cost": 0, "total": 125}]}, {"start": 1, "best_end": 3, "optimum": 27, "candidates": [{"end": 1, "unused": 13, "line_penalty": 2197, "suffix_cost": 125, "total": 2322}, {"end": 2, "unused": 10, "line_penalty": 1000, "suffix_cost": 344, "total": 1344}, {"end": 3, "unused": 3, "line_penalty": 27, "suffix_cost": 0, "total": 27}]}, {"start": 0, "best_end": 1, "optimum": 341, "candidates": [{"end": 0, "unused": 8, "line_penalty": 512, "suffix_cost": 27, "total": 539}, {"end": 1, "unused": 6, "line_penalty": 216, "suffix_cost": 125, "total": 341}, {"end": 2, "unused": 3, "line_penalty": 27, "suffix_cost": 344, "total": 371}]}], "stats": {"states": 8, "candidates": 22, "feasible_candidates": 16, "stored_dp_and_choice_slots": 17}}}

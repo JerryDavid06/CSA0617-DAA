@@ -1,0 +1,66 @@
+TASK 6 TSP - hub + six deliveries; Manhattan travel costs
+Input cost matrix:
+[0, 3, 5, 10, 10, 6, 4]
+[3, 0, 4, 7, 7, 7, 5]
+[5, 4, 0, 5, 9, 11, 9]
+[10, 7, 5, 0, 6, 8, 12]
+[10, 7, 9, 6, 0, 6, 12]
+[6, 7, 11, 8, 6, 0, 6]
+[4, 5, 9, 12, 12, 6, 0]
+Complete route: Hub -> F -> E -> D -> C -> B -> A -> Hub
+Minimum cost: 34
+States and transitions: {'states': 192, 'transitions': 480, 'dp_and_parent_entries': 384}
+Sample intermediate DP states:
+{'mask': 1, 'last': 1, 'cost': 3, 'predecessor': -1}
+{'mask': 2, 'last': 2, 'cost': 5, 'predecessor': -1}
+{'mask': 3, 'last': 1, 'cost': 9, 'predecessor': 1}
+{'mask': 3, 'last': 2, 'cost': 7, 'predecessor': 0}
+{'mask': 4, 'last': 3, 'cost': 10, 'predecessor': -1}
+{'mask': 5, 'last': 1, 'cost': 17, 'predecessor': 2}
+{'mask': 5, 'last': 3, 'cost': 10, 'predecessor': 0}
+{'mask': 6, 'last': 2, 'cost': 15, 'predecessor': 2}
+{'mask': 6, 'last': 3, 'cost': 10, 'predecessor': 1}
+{'mask': 7, 'last': 1, 'cost': 17, 'predecessor': 2}
+{'mask': 7, 'last': 2, 'cost': 15, 'predecessor': 2}
+{'mask': 7, 'last': 3, 'cost': 12, 'predecessor': 1}
+{'mask': 8, 'last': 4, 'cost': 10, 'predecessor': -1}
+{'mask': 9, 'last': 1, 'cost': 17, 'predecessor': 3}
+{'mask': 9, 'last': 4, 'cost': 10, 'predecessor': 0}
+{'mask': 10, 'last': 2, 'cost': 19, 'predecessor': 3}
+
+Four-delivery exhaustive comparison:
+Hub -> A -> B -> C -> D -> Hub = 28
+Hub -> A -> B -> D -> C -> Hub = 32
+Hub -> A -> C -> B -> D -> Hub = 34
+Hub -> A -> C -> D -> B -> Hub = 30
+Hub -> A -> D -> B -> C -> Hub = 34
+Hub -> A -> D -> C -> B -> Hub = 26
+Hub -> B -> A -> C -> D -> Hub = 32
+Hub -> B -> A -> D -> C -> Hub = 32
+Hub -> B -> C -> A -> D -> Hub = 34
+Hub -> B -> C -> D -> A -> Hub = 26
+Hub -> B -> D -> A -> C -> Hub = 38
+Hub -> B -> D -> C -> A -> Hub = 30
+Hub -> C -> A -> B -> D -> Hub = 40
+Hub -> C -> A -> D -> B -> Hub = 38
+Hub -> C -> B -> A -> D -> Hub = 36
+Hub -> C -> B -> D -> A -> Hub = 34
+Hub -> C -> D -> A -> B -> Hub = 32
+Hub -> C -> D -> B -> A -> Hub = 32
+Hub -> D -> A -> B -> C -> Hub = 36
+Hub -> D -> A -> C -> B -> Hub = 34
+Hub -> D -> B -> A -> C -> Hub = 40
+Hub -> D -> B -> C -> A -> Hub = 34
+Hub -> D -> C -> A -> B -> Hub = 32
+Hub -> D -> C -> B -> A -> Hub = 28
+DP optimum: 26
+
+State growth:
+{'deliveries': 4, 'total_vertices': 5, 'states': 32, 'transitions': 48, 'dp_and_parent_entries': 64, 'seconds_median': 4.730001091957092e-05, 'peak_python_bytes': 3024}
+{'deliveries': 5, 'total_vertices': 6, 'states': 80, 'transitions': 160, 'dp_and_parent_entries': 160, 'seconds_median': 0.00010529998689889908, 'peak_python_bytes': 5752}
+{'deliveries': 6, 'total_vertices': 7, 'states': 192, 'transitions': 480, 'dp_and_parent_entries': 384, 'seconds_median': 0.00028220005333423615, 'peak_python_bytes': 23384}
+{'deliveries': 7, 'total_vertices': 8, 'states': 448, 'transitions': 1344, 'dp_and_parent_entries': 896, 'seconds_median': 0.0006813998334109783, 'peak_python_bytes': 46416}
+{'deliveries': 8, 'total_vertices': 9, 'states': 1024, 'transitions': 3584, 'dp_and_parent_entries': 2048, 'seconds_median': 0.0017462996765971184, 'peak_python_bytes': 92504}
+{'deliveries': 10, 'total_vertices': 11, 'states': 5120, 'transitions': 23040, 'dp_and_parent_entries': 10240, 'seconds_median': 0.010575900319963694, 'peak_python_bytes': 781804}
+{'deliveries': 12, 'total_vertices': 13, 'states': 24576, 'transitions': 135168, 'dp_and_parent_entries': 49152, 'seconds_median': 0.061513399705290794, 'peak_python_bytes': 5658320}
+No exact 200-delivery run was attempted.

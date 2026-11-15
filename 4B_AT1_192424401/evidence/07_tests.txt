@@ -1,0 +1,27 @@
+test_all_pairs_costs_against_single_source (test_algorithms.AlgorithmTests.test_all_pairs_costs_against_single_source) ... ok
+test_assembly_baseline_and_changes (test_algorithms.AlgorithmTests.test_assembly_baseline_and_changes) ... ok
+test_assembly_random_oracle (test_algorithms.AlgorithmTests.test_assembly_random_oracle) ... ok
+test_assembly_single_and_invalid (test_algorithms.AlgorithmTests.test_assembly_single_and_invalid) ... ok
+test_knapsack_boundaries (test_algorithms.AlgorithmTests.test_knapsack_boundaries) ... ok
+test_knapsack_counterexample (test_algorithms.AlgorithmTests.test_knapsack_counterexample) ... ok
+test_knapsack_normal (test_algorithms.AlgorithmTests.test_knapsack_normal) ... ok
+test_knapsack_random_oracle (test_algorithms.AlgorithmTests.test_knapsack_random_oracle) ... ok
+test_mst_costs_and_ties (test_algorithms.AlgorithmTests.test_mst_costs_and_ties) ... ok
+test_mst_disconnected (test_algorithms.AlgorithmTests.test_mst_disconnected) ... ok
+test_mst_exhaustive_reference (test_algorithms.AlgorithmTests.test_mst_exhaustive_reference) ... ok
+test_negative_cycles_and_unreachable_guard (test_algorithms.AlgorithmTests.test_negative_cycles_and_unreachable_guard) ... ok
+test_negative_edge_meaningful (test_algorithms.AlgorithmTests.test_negative_edge_meaningful) ... ok
+test_positive_routing_oracles (test_algorithms.AlgorithmTests.test_positive_routing_oracles) ... ok
+test_routing_unreachable_and_invalid (test_algorithms.AlgorithmTests.test_routing_unreachable_and_invalid) ... ok
+test_tsp_empty_delivery_missing_tour_and_guard (test_algorithms.AlgorithmTests.test_tsp_empty_delivery_missing_tour_and_guard) ... ok
+test_tsp_four_and_six_delivery_oracles (test_algorithms.AlgorithmTests.test_tsp_four_and_six_delivery_oracles) ... ok
+test_tsp_random_asymmetric (test_algorithms.AlgorithmTests.test_tsp_random_asymmetric) ... ok
+test_warshall_bfs_and_floyd (test_algorithms.AlgorithmTests.test_warshall_bfs_and_floyd) ... ok
+test_word_wrap_boundaries (test_algorithms.AlgorithmTests.test_word_wrap_boundaries) ... ok
+test_word_wrap_exhaustive_breaks (test_algorithms.AlgorithmTests.test_word_wrap_exhaustive_breaks) ... ok
+test_word_wrap_widths_and_both_penalties (test_algorithms.AlgorithmTests.test_word_wrap_widths_and_both_penalties) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.149s
+
+OK

@@ -1,0 +1,54 @@
+{
+  "record": "Predictions recorded before running the implementations",
+  "word_wrap": {
+    "text": "now we go again",
+    "baseline_width": 6,
+    "cases": [
+      {
+        "width": 7,
+        "arrangement": "same three lines",
+        "first_change": "none",
+        "penalty_direction": "increase"
+      },
+      {
+        "width": 8,
+        "arrangement": "now we / go again",
+        "first_change": "first line gains we",
+        "penalty_direction": "decrease"
+      },
+      {
+        "width": 10,
+        "arrangement": "now we go / again",
+        "first_change": "first line gains go",
+        "penalty_direction": "decrease"
+      }
+    ]
+  },
+  "routing": {
+    "negative_edge": [
+      "C",
+      "B",
+      -4
+    ],
+    "prediction": "Guarded Dijkstra rejects the negative edge; an explicitly unsafe settled-vertex demonstration misses the improvement of B from 2 to 1, affecting downstream routes. Bellman-Ford finds the improvements.",
+    "cycle_edge": [
+      "H",
+      "C",
+      -7
+    ],
+    "cycle_prediction": "Reachable cycle C-B-D-E-F-G-H-C has total -1 and must be reported, not returned as finite shortest paths."
+  },
+  "assembly": {
+    "transfer_change": "Line 2 to Line 1 after station 2: 1 to 20",
+    "prediction": "Avoid Line 2 station 5; the best route may switch earlier to anticipate the slowdown; total time increases.",
+    "machine_change": "Line 2 station 5 processing: 5 to 50"
+  },
+  "mst": {
+    "edge_change": "A-B: 4 to 3, matching A-C",
+    "prediction": "Two minimum spanning trees exist; differing tie rules can select A-B or A-C with the same total."
+  },
+  "tsp": {
+    "growth": "Valid delivery states m*2^(m-1); doubling subsets dominates any modest runtime tuning.",
+    "limit": "Do not run exact DP for 200 deliveries."
+  }
+}

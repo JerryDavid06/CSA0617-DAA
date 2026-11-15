@@ -1,0 +1,55 @@
+TASK 5 MST - same undirected graph for all three methods
+
+unique kruskal: cost=49 edges=[('B', 'C', 2), ('A', 'C', 3), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]
+{'edge': ('B', 'C', 2), 'components': ('B', 'C'), 'accepted': True}
+{'edge': ('A', 'C', 3), 'components': ('A', 'B'), 'accepted': True}
+{'edge': ('A', 'B', 4), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('B', 'D', 5), 'components': ('B', 'D'), 'accepted': True}
+{'edge': ('D', 'E', 6), 'components': ('B', 'E'), 'accepted': True}
+{'edge': ('C', 'D', 7), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('C', 'E', 8), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('E', 'F', 9), 'components': ('B', 'F'), 'accepted': True}
+{'edge': ('D', 'F', 10), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('E', 'G', 11), 'components': ('B', 'G'), 'accepted': True}
+{'edge': ('F', 'G', 12), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('G', 'H', 13), 'components': ('B', 'H'), 'accepted': True}
+
+unique prim: cost=49 edges=[('B', 'C', 2), ('A', 'C', 3), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]
+{'edge': ('C', 'B', 2), 'cut': ['C']}
+{'edge': ('C', 'A', 3), 'cut': ['B', 'C']}
+{'edge': ('B', 'D', 5), 'cut': ['A', 'B', 'C']}
+{'edge': ('D', 'E', 6), 'cut': ['A', 'B', 'C', 'D']}
+{'edge': ('E', 'F', 9), 'cut': ['A', 'B', 'C', 'D', 'E']}
+{'edge': ('E', 'G', 11), 'cut': ['A', 'B', 'C', 'D', 'E', 'F']}
+{'edge': ('G', 'H', 13), 'cut': ['A', 'B', 'C', 'D', 'E', 'F', 'G']}
+
+unique boruvka: cost=49 edges=[('A', 'C', 3), ('B', 'C', 2), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]
+{'proposals': {'A': ('A', 'C', 3), 'B': ('B', 'C', 2), 'C': ('B', 'C', 2), 'D': ('B', 'D', 5), 'E': ('D', 'E', 6), 'F': ('E', 'F', 9), 'G': ('E', 'G', 11), 'H': ('G', 'H', 13)}, 'accepted': [('A', 'C', 3), ('B', 'C', 2), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]}
+Independent enumeration: optimum=49, number of MSTs=1
+
+tied kruskal: cost=49 edges=[('B', 'C', 2), ('A', 'B', 3), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]
+{'edge': ('B', 'C', 2), 'components': ('B', 'C'), 'accepted': True}
+{'edge': ('A', 'B', 3), 'components': ('A', 'B'), 'accepted': True}
+{'edge': ('A', 'C', 3), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('B', 'D', 5), 'components': ('B', 'D'), 'accepted': True}
+{'edge': ('D', 'E', 6), 'components': ('B', 'E'), 'accepted': True}
+{'edge': ('C', 'D', 7), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('C', 'E', 8), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('E', 'F', 9), 'components': ('B', 'F'), 'accepted': True}
+{'edge': ('D', 'F', 10), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('E', 'G', 11), 'components': ('B', 'G'), 'accepted': True}
+{'edge': ('F', 'G', 12), 'components': ('B', 'B'), 'accepted': False}
+{'edge': ('G', 'H', 13), 'components': ('B', 'H'), 'accepted': True}
+
+tied prim: cost=49 edges=[('B', 'C', 2), ('A', 'C', 3), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]
+{'edge': ('C', 'B', 2), 'cut': ['C']}
+{'edge': ('C', 'A', 3), 'cut': ['B', 'C']}
+{'edge': ('B', 'D', 5), 'cut': ['A', 'B', 'C']}
+{'edge': ('D', 'E', 6), 'cut': ['A', 'B', 'C', 'D']}
+{'edge': ('E', 'F', 9), 'cut': ['A', 'B', 'C', 'D', 'E']}
+{'edge': ('E', 'G', 11), 'cut': ['A', 'B', 'C', 'D', 'E', 'F']}
+{'edge': ('G', 'H', 13), 'cut': ['A', 'B', 'C', 'D', 'E', 'F', 'G']}
+
+tied boruvka: cost=49 edges=[('A', 'B', 3), ('B', 'C', 2), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]
+{'proposals': {'A': ('A', 'B', 3), 'B': ('B', 'C', 2), 'C': ('B', 'C', 2), 'D': ('B', 'D', 5), 'E': ('D', 'E', 6), 'F': ('E', 'F', 9), 'G': ('E', 'G', 11), 'H': ('G', 'H', 13)}, 'accepted': [('A', 'B', 3), ('B', 'C', 2), ('B', 'D', 5), ('D', 'E', 6), ('E', 'F', 9), ('E', 'G', 11), ('G', 'H', 13)]}
+Independent enumeration: optimum=49, number of MSTs=2

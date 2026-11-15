@@ -1,0 +1,5581 @@
+{
+  "metadata": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "repeats": 3,
+    "timing": "Median perf_counter; generation excluded; counters included",
+    "memory": "Separate single-call tracemalloc peak, not process RSS",
+    "source_sha256": {
+      "cases.py": "1a3b39220170e9eebf6679eaff8a383877e4bd15fbb3d99eac3179e06f97be9c",
+      "graphs.py": "340c604c4197cd799534339ae01d4145c6a2e4f44509d1ebcc625b52a2189b52",
+      "optimization.py": "3241641b980956d08ead6c730b58ea81f647be4e073d41078fc793ad759c6822",
+      "run_all.py": "9050b4b5f7c59ac483514a80709f865ef0c24e6661f0c73c23abc72a70981700",
+      "test_algorithms.py": "1349bd443a8b6029ee97eff571bc42025af4d65ce2b29d1eb22df240d92e0eea"
+    }
+  },
+  "predictions": {
+    "record": "Predictions recorded before running the implementations",
+    "word_wrap": {
+      "text": "now we go again",
+      "baseline_width": 6,
+      "cases": [
+        {
+          "width": 7,
+          "arrangement": "same three lines",
+          "first_change": "none",
+          "penalty_direction": "increase"
+        },
+        {
+          "width": 8,
+          "arrangement": "now we / go again",
+          "first_change": "first line gains we",
+          "penalty_direction": "decrease"
+        },
+        {
+          "width": 10,
+          "arrangement": "now we go / again",
+          "first_change": "first line gains go",
+          "penalty_direction": "decrease"
+        }
+      ]
+    },
+    "routing": {
+      "negative_edge": [
+        "C",
+        "B",
+        -4
+      ],
+      "prediction": "Guarded Dijkstra rejects the negative edge; an explicitly unsafe settled-vertex demonstration misses the improvement of B from 2 to 1, affecting downstream routes. Bellman-Ford finds the improvements.",
+      "cycle_edge": [
+        "H",
+        "C",
+        -7
+      ],
+      "cycle_prediction": "Reachable cycle C-B-D-E-F-G-H-C has total -1 and must be reported, not returned as finite shortest paths."
+    },
+    "assembly": {
+      "transfer_change": "Line 2 to Line 1 after station 2: 1 to 20",
+      "prediction": "Avoid Line 2 station 5; the best route may switch earlier to anticipate the slowdown; total time increases.",
+      "machine_change": "Line 2 station 5 processing: 5 to 50"
+    },
+    "mst": {
+      "edge_change": "A-B: 4 to 3, matching A-C",
+      "prediction": "Two minimum spanning trees exist; differing tie rules can select A-B or A-C with the same total."
+    },
+    "tsp": {
+      "growth": "Valid delivery states m*2^(m-1); doubling subsets dominates any modest runtime tuning.",
+      "limit": "Do not run exact DP for 200 deliveries."
+    }
+  },
+  "word_wrap": {
+    "cases": [
+      {
+        "power": 2,
+        "width": 6,
+        "cost": 10,
+        "lines": [
+          {
+            "words": [
+              "now"
+            ],
+            "unused": 3,
+            "penalty": 9
+          },
+          {
+            "words": [
+              "we",
+              "go"
+            ],
+            "unused": 1,
+            "penalty": 1
+          },
+          {
+            "words": [
+              "again"
+            ],
+            "unused": 1,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          10,
+          1,
+          16,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 1,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 2,
+            "optimum": 16,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 4,
+                "line_penalty": 16,
+                "suffix_cost": 0,
+                "total": 16
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 1,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 4,
+                "line_penalty": 16,
+                "suffix_cost": 16,
+                "total": 32
+              },
+              {
+                "end": 2,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 0,
+                "total": 1
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 0,
+            "optimum": 10,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 3,
+                "line_penalty": 9,
+                "suffix_cost": 1,
+                "total": 10
+              },
+              {
+                "end": 1,
+                "unused": 0,
+                "line_penalty": 0,
+                "suffix_cost": 16,
+                "total": 16
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 9,
+          "feasible_candidates": 6,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 2,
+        "width": 7,
+        "cost": 20,
+        "lines": [
+          {
+            "words": [
+              "now"
+            ],
+            "unused": 4,
+            "penalty": 16
+          },
+          {
+            "words": [
+              "we",
+              "go"
+            ],
+            "unused": 2,
+            "penalty": 4
+          },
+          {
+            "words": [
+              "again"
+            ],
+            "unused": 2,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          20,
+          4,
+          25,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 2,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 2,
+            "optimum": 25,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 5,
+                "line_penalty": 25,
+                "suffix_cost": 0,
+                "total": 25
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 4,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 5,
+                "line_penalty": 25,
+                "suffix_cost": 25,
+                "total": 50
+              },
+              {
+                "end": 2,
+                "unused": 2,
+                "line_penalty": 4,
+                "suffix_cost": 0,
+                "total": 4
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 0,
+            "optimum": 20,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 4,
+                "line_penalty": 16,
+                "suffix_cost": 4,
+                "total": 20
+              },
+              {
+                "end": 1,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 25,
+                "total": 26
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 9,
+          "feasible_candidates": 6,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 2,
+        "width": 8,
+        "cost": 4,
+        "lines": [
+          {
+            "words": [
+              "now",
+              "we"
+            ],
+            "unused": 2,
+            "penalty": 4
+          },
+          {
+            "words": [
+              "go",
+              "again"
+            ],
+            "unused": 0,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          4,
+          9,
+          0,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 3,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 6,
+                "line_penalty": 36,
+                "suffix_cost": 0,
+                "total": 36
+              },
+              {
+                "end": 3,
+                "unused": 0,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 9,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 6,
+                "line_penalty": 36,
+                "suffix_cost": 0,
+                "total": 36
+              },
+              {
+                "end": 2,
+                "unused": 3,
+                "line_penalty": 9,
+                "suffix_cost": 0,
+                "total": 9
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 1,
+            "optimum": 4,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 5,
+                "line_penalty": 25,
+                "suffix_cost": 9,
+                "total": 34
+              },
+              {
+                "end": 1,
+                "unused": 2,
+                "line_penalty": 4,
+                "suffix_cost": 0,
+                "total": 4
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 9,
+          "feasible_candidates": 7,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 2,
+        "width": 10,
+        "cost": 1,
+        "lines": [
+          {
+            "words": [
+              "now",
+              "we",
+              "go"
+            ],
+            "unused": 1,
+            "penalty": 1
+          },
+          {
+            "words": [
+              "again"
+            ],
+            "unused": 5,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          1,
+          25,
+          0,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 5,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 8,
+                "line_penalty": 64,
+                "suffix_cost": 0,
+                "total": 64
+              },
+              {
+                "end": 3,
+                "unused": 2,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 25,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 8,
+                "line_penalty": 64,
+                "suffix_cost": 0,
+                "total": 64
+              },
+              {
+                "end": 2,
+                "unused": 5,
+                "line_penalty": 25,
+                "suffix_cost": 0,
+                "total": 25
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 2,
+            "optimum": 1,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 7,
+                "line_penalty": 49,
+                "suffix_cost": 25,
+                "total": 74
+              },
+              {
+                "end": 1,
+                "unused": 4,
+                "line_penalty": 16,
+                "suffix_cost": 0,
+                "total": 16
+              },
+              {
+                "end": 2,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 0,
+                "total": 1
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 10,
+          "feasible_candidates": 8,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 3,
+        "width": 6,
+        "cost": 28,
+        "lines": [
+          {
+            "words": [
+              "now"
+            ],
+            "unused": 3,
+            "penalty": 27
+          },
+          {
+            "words": [
+              "we",
+              "go"
+            ],
+            "unused": 1,
+            "penalty": 1
+          },
+          {
+            "words": [
+              "again"
+            ],
+            "unused": 1,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          28,
+          1,
+          64,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 1,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 2,
+            "optimum": 64,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 4,
+                "line_penalty": 64,
+                "suffix_cost": 0,
+                "total": 64
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 1,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 4,
+                "line_penalty": 64,
+                "suffix_cost": 64,
+                "total": 128
+              },
+              {
+                "end": 2,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 0,
+                "total": 1
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 0,
+            "optimum": 28,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 3,
+                "line_penalty": 27,
+                "suffix_cost": 1,
+                "total": 28
+              },
+              {
+                "end": 1,
+                "unused": 0,
+                "line_penalty": 0,
+                "suffix_cost": 64,
+                "total": 64
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 9,
+          "feasible_candidates": 6,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 3,
+        "width": 7,
+        "cost": 72,
+        "lines": [
+          {
+            "words": [
+              "now"
+            ],
+            "unused": 4,
+            "penalty": 64
+          },
+          {
+            "words": [
+              "we",
+              "go"
+            ],
+            "unused": 2,
+            "penalty": 8
+          },
+          {
+            "words": [
+              "again"
+            ],
+            "unused": 2,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          72,
+          8,
+          125,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 2,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 2,
+            "optimum": 125,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 5,
+                "line_penalty": 125,
+                "suffix_cost": 0,
+                "total": 125
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 8,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 5,
+                "line_penalty": 125,
+                "suffix_cost": 125,
+                "total": 250
+              },
+              {
+                "end": 2,
+                "unused": 2,
+                "line_penalty": 8,
+                "suffix_cost": 0,
+                "total": 8
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 0,
+            "optimum": 72,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 4,
+                "line_penalty": 64,
+                "suffix_cost": 8,
+                "total": 72
+              },
+              {
+                "end": 1,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 125,
+                "total": 126
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 9,
+          "feasible_candidates": 6,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 3,
+        "width": 8,
+        "cost": 8,
+        "lines": [
+          {
+            "words": [
+              "now",
+              "we"
+            ],
+            "unused": 2,
+            "penalty": 8
+          },
+          {
+            "words": [
+              "go",
+              "again"
+            ],
+            "unused": 0,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          8,
+          27,
+          0,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 3,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 6,
+                "line_penalty": 216,
+                "suffix_cost": 0,
+                "total": 216
+              },
+              {
+                "end": 3,
+                "unused": 0,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 27,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 6,
+                "line_penalty": 216,
+                "suffix_cost": 0,
+                "total": 216
+              },
+              {
+                "end": 2,
+                "unused": 3,
+                "line_penalty": 27,
+                "suffix_cost": 0,
+                "total": 27
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 1,
+            "optimum": 8,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 5,
+                "line_penalty": 125,
+                "suffix_cost": 27,
+                "total": 152
+              },
+              {
+                "end": 1,
+                "unused": 2,
+                "line_penalty": 8,
+                "suffix_cost": 0,
+                "total": 8
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 9,
+          "feasible_candidates": 7,
+          "stored_dp_and_choice_slots": 9
+        }
+      },
+      {
+        "power": 3,
+        "width": 10,
+        "cost": 1,
+        "lines": [
+          {
+            "words": [
+              "now",
+              "we",
+              "go"
+            ],
+            "unused": 1,
+            "penalty": 1
+          },
+          {
+            "words": [
+              "again"
+            ],
+            "unused": 5,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          1,
+          125,
+          0,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 3,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 5,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 3,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 8,
+                "line_penalty": 512,
+                "suffix_cost": 0,
+                "total": 512
+              },
+              {
+                "end": 3,
+                "unused": 2,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 2,
+            "optimum": 125,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 8,
+                "line_penalty": 512,
+                "suffix_cost": 0,
+                "total": 512
+              },
+              {
+                "end": 2,
+                "unused": 5,
+                "line_penalty": 125,
+                "suffix_cost": 0,
+                "total": 125
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 2,
+            "optimum": 1,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 7,
+                "line_penalty": 343,
+                "suffix_cost": 125,
+                "total": 468
+              },
+              {
+                "end": 1,
+                "unused": 4,
+                "line_penalty": 64,
+                "suffix_cost": 0,
+                "total": 64
+              },
+              {
+                "end": 2,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 0,
+                "total": 1
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 4,
+          "candidates": 10,
+          "feasible_candidates": 8,
+          "stored_dp_and_choice_slots": 9
+        }
+      }
+    ],
+    "power_sensitive": {
+      "words": [
+        "xxxxxx",
+        "x",
+        "xx",
+        "xxxxxx",
+        "xxxxxx",
+        "xxxxxxx",
+        "xxxxxxx",
+        "xxxxx"
+      ],
+      "width": 14,
+      "squared": {
+        "cost": 59,
+        "lines": [
+          {
+            "words": [
+              "xxxxxx",
+              "x",
+              "xx"
+            ],
+            "unused": 3,
+            "penalty": 9
+          },
+          {
+            "words": [
+              "xxxxxx",
+              "xxxxxx"
+            ],
+            "unused": 1,
+            "penalty": 1
+          },
+          {
+            "words": [
+              "xxxxxxx"
+            ],
+            "unused": 7,
+            "penalty": 49
+          },
+          {
+            "words": [
+              "xxxxxxx",
+              "xxxxx"
+            ],
+            "unused": 1,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          59,
+          9,
+          25,
+          50,
+          0,
+          49,
+          0,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 7,
+            "best_end": 7,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 7,
+                "unused": 9,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 6,
+            "best_end": 7,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 6,
+                "unused": 7,
+                "line_penalty": 49,
+                "suffix_cost": 0,
+                "total": 49
+              },
+              {
+                "end": 7,
+                "unused": 1,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "best_end": 5,
+            "optimum": 49,
+            "candidates": [
+              {
+                "end": 5,
+                "unused": 7,
+                "line_penalty": 49,
+                "suffix_cost": 0,
+                "total": 49
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "best_end": 5,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 4,
+                "unused": 8,
+                "line_penalty": 64,
+                "suffix_cost": 49,
+                "total": 113
+              },
+              {
+                "end": 5,
+                "unused": 0,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "best_end": 4,
+            "optimum": 50,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 8,
+                "line_penalty": 64,
+                "suffix_cost": 0,
+                "total": 64
+              },
+              {
+                "end": 4,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 49,
+                "total": 50
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 3,
+            "optimum": 25,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 12,
+                "line_penalty": 144,
+                "suffix_cost": 50,
+                "total": 194
+              },
+              {
+                "end": 3,
+                "unused": 5,
+                "line_penalty": 25,
+                "suffix_cost": 0,
+                "total": 25
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 3,
+            "optimum": 9,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 13,
+                "line_penalty": 169,
+                "suffix_cost": 25,
+                "total": 194
+              },
+              {
+                "end": 2,
+                "unused": 10,
+                "line_penalty": 100,
+                "suffix_cost": 50,
+                "total": 150
+              },
+              {
+                "end": 3,
+                "unused": 3,
+                "line_penalty": 9,
+                "suffix_cost": 0,
+                "total": 9
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 2,
+            "optimum": 59,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 8,
+                "line_penalty": 64,
+                "suffix_cost": 9,
+                "total": 73
+              },
+              {
+                "end": 1,
+                "unused": 6,
+                "line_penalty": 36,
+                "suffix_cost": 25,
+                "total": 61
+              },
+              {
+                "end": 2,
+                "unused": 3,
+                "line_penalty": 9,
+                "suffix_cost": 50,
+                "total": 59
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 8,
+          "candidates": 22,
+          "feasible_candidates": 16,
+          "stored_dp_and_choice_slots": 17
+        }
+      },
+      "cubic": {
+        "cost": 341,
+        "lines": [
+          {
+            "words": [
+              "xxxxxx",
+              "x"
+            ],
+            "unused": 6,
+            "penalty": 216
+          },
+          {
+            "words": [
+              "xx",
+              "xxxxxx"
+            ],
+            "unused": 5,
+            "penalty": 125
+          },
+          {
+            "words": [
+              "xxxxxx",
+              "xxxxxxx"
+            ],
+            "unused": 0,
+            "penalty": 0
+          },
+          {
+            "words": [
+              "xxxxxxx",
+              "xxxxx"
+            ],
+            "unused": 1,
+            "penalty": 0
+          }
+        ],
+        "dp": [
+          341,
+          27,
+          125,
+          344,
+          0,
+          343,
+          0,
+          0,
+          0
+        ],
+        "trace": [
+          {
+            "start": 7,
+            "best_end": 7,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 7,
+                "unused": 9,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 6,
+            "best_end": 7,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 6,
+                "unused": 7,
+                "line_penalty": 343,
+                "suffix_cost": 0,
+                "total": 343
+              },
+              {
+                "end": 7,
+                "unused": 1,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "best_end": 5,
+            "optimum": 343,
+            "candidates": [
+              {
+                "end": 5,
+                "unused": 7,
+                "line_penalty": 343,
+                "suffix_cost": 0,
+                "total": 343
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "best_end": 5,
+            "optimum": 0,
+            "candidates": [
+              {
+                "end": 4,
+                "unused": 8,
+                "line_penalty": 512,
+                "suffix_cost": 343,
+                "total": 855
+              },
+              {
+                "end": 5,
+                "unused": 0,
+                "line_penalty": 0,
+                "suffix_cost": 0,
+                "total": 0
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "best_end": 4,
+            "optimum": 344,
+            "candidates": [
+              {
+                "end": 3,
+                "unused": 8,
+                "line_penalty": 512,
+                "suffix_cost": 0,
+                "total": 512
+              },
+              {
+                "end": 4,
+                "unused": 1,
+                "line_penalty": 1,
+                "suffix_cost": 343,
+                "total": 344
+              }
+            ]
+          },
+          {
+            "start": 2,
+            "best_end": 3,
+            "optimum": 125,
+            "candidates": [
+              {
+                "end": 2,
+                "unused": 12,
+                "line_penalty": 1728,
+                "suffix_cost": 344,
+                "total": 2072
+              },
+              {
+                "end": 3,
+                "unused": 5,
+                "line_penalty": 125,
+                "suffix_cost": 0,
+                "total": 125
+              }
+            ]
+          },
+          {
+            "start": 1,
+            "best_end": 3,
+            "optimum": 27,
+            "candidates": [
+              {
+                "end": 1,
+                "unused": 13,
+                "line_penalty": 2197,
+                "suffix_cost": 125,
+                "total": 2322
+              },
+              {
+                "end": 2,
+                "unused": 10,
+                "line_penalty": 1000,
+                "suffix_cost": 344,
+                "total": 1344
+              },
+              {
+                "end": 3,
+                "unused": 3,
+                "line_penalty": 27,
+                "suffix_cost": 0,
+                "total": 27
+              }
+            ]
+          },
+          {
+            "start": 0,
+            "best_end": 1,
+            "optimum": 341,
+            "candidates": [
+              {
+                "end": 0,
+                "unused": 8,
+                "line_penalty": 512,
+                "suffix_cost": 27,
+                "total": 539
+              },
+              {
+                "end": 1,
+                "unused": 6,
+                "line_penalty": 216,
+                "suffix_cost": 125,
+                "total": 341
+              },
+              {
+                "end": 2,
+                "unused": 3,
+                "line_penalty": 27,
+                "suffix_cost": 344,
+                "total": 371
+              }
+            ]
+          }
+        ],
+        "stats": {
+          "states": 8,
+          "candidates": 22,
+          "feasible_candidates": 16,
+          "stored_dp_and_choice_slots": 17
+        }
+      }
+    }
+  },
+  "knapsack": {
+    "normal": {
+      "items": [
+        [
+          "A",
+          2,
+          12
+        ],
+        [
+          "B",
+          3,
+          15
+        ],
+        [
+          "C",
+          5,
+          20
+        ]
+      ],
+      "capacity": 5,
+      "fractional": {
+        "result": {
+          "value": 27.0,
+          "selected": [
+            {
+              "id": "A",
+              "fraction": "1",
+              "weight": 2.0,
+              "value": 12.0
+            },
+            {
+              "id": "B",
+              "fraction": "1",
+              "weight": 3.0,
+              "value": 15.0
+            }
+          ],
+          "trace": [
+            {
+              "id": "A",
+              "density": 6.0,
+              "fraction": "1",
+              "remaining": 3.0,
+              "value_so_far": 12.0
+            },
+            {
+              "id": "B",
+              "density": 5.0,
+              "fraction": "1",
+              "remaining": 0.0,
+              "value_so_far": 27.0
+            }
+          ],
+          "stats": {
+            "ratio_comparisons": 2,
+            "items_examined": 2,
+            "output_items": 2
+          }
+        },
+        "measurement": {
+          "seconds_median": 3.949971869587898e-05,
+          "peak_python_bytes": 888
+        }
+      },
+      "greedy_01": {
+        "result": {
+          "value": 27,
+          "selected": [
+            "A",
+            "B"
+          ],
+          "weight": 5,
+          "trace": [
+            {
+              "id": "A",
+              "take": true,
+              "remaining": 3,
+              "value": 12
+            },
+            {
+              "id": "B",
+              "take": true,
+              "remaining": 0,
+              "value": 27
+            },
+            {
+              "id": "C",
+              "take": false,
+              "remaining": 0,
+              "value": 27
+            }
+          ],
+          "stats": {
+            "ratio_comparisons": 2,
+            "items_examined": 3
+          }
+        },
+        "measurement": {
+          "seconds_median": 1.0699965059757233e-05,
+          "peak_python_bytes": 560
+        }
+      },
+      "dp_01": {
+        "result": {
+          "value": 27,
+          "selected": [
+            "A",
+            "B"
+          ],
+          "weight": 5,
+          "dp": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              12,
+              12,
+              12,
+              12
+            ],
+            [
+              0,
+              0,
+              12,
+              15,
+              15,
+              27
+            ],
+            [
+              0,
+              0,
+              12,
+              15,
+              15,
+              27
+            ]
+          ],
+          "traceback": [
+            {
+              "item": "C",
+              "capacity": 5,
+              "take": false,
+              "optimum": 27,
+              "exclude": 27
+            },
+            {
+              "item": "B",
+              "capacity": 5,
+              "take": true,
+              "optimum": 27,
+              "exclude": 12
+            },
+            {
+              "item": "A",
+              "capacity": 2,
+              "take": true,
+              "optimum": 12,
+              "exclude": 0
+            }
+          ],
+          "stats": {
+            "states_evaluated": 18,
+            "include_alternatives": 8,
+            "table_cells": 24
+          }
+        },
+        "measurement": {
+          "seconds_median": 1.5600118786096573e-05,
+          "peak_python_bytes": 816
+        }
+      }
+    },
+    "counterexample": {
+      "items": [
+        [
+          "K1",
+          10,
+          60
+        ],
+        [
+          "K2",
+          20,
+          100
+        ],
+        [
+          "K3",
+          30,
+          120
+        ]
+      ],
+      "capacity": 50,
+      "fractional": {
+        "result": {
+          "value": 240.0,
+          "selected": [
+            {
+              "id": "K1",
+              "fraction": "1",
+              "weight": 10.0,
+              "value": 60.0
+            },
+            {
+              "id": "K2",
+              "fraction": "1",
+              "weight": 20.0,
+              "value": 100.0
+            },
+            {
+              "id": "K3",
+              "fraction": "2/3",
+              "weight": 20.0,
+              "value": 80.0
+            }
+          ],
+          "trace": [
+            {
+              "id": "K1",
+              "density": 6.0,
+              "fraction": "1",
+              "remaining": 40.0,
+              "value_so_far": 60.0
+            },
+            {
+              "id": "K2",
+              "density": 5.0,
+              "fraction": "1",
+              "remaining": 20.0,
+              "value_so_far": 160.0
+            },
+            {
+              "id": "K3",
+              "density": 4.0,
+              "fraction": "2/3",
+              "remaining": 0.0,
+              "value_so_far": 240.0
+            }
+          ],
+          "stats": {
+            "ratio_comparisons": 2,
+            "items_examined": 3,
+            "output_items": 3
+          }
+        },
+        "measurement": {
+          "seconds_median": 5.020014941692352e-05,
+          "peak_python_bytes": 1060
+        }
+      },
+      "greedy_01": {
+        "result": {
+          "value": 160,
+          "selected": [
+            "K1",
+            "K2"
+          ],
+          "weight": 30,
+          "trace": [
+            {
+              "id": "K1",
+              "take": true,
+              "remaining": 40,
+              "value": 60
+            },
+            {
+              "id": "K2",
+              "take": true,
+              "remaining": 20,
+              "value": 160
+            },
+            {
+              "id": "K3",
+              "take": false,
+              "remaining": 20,
+              "value": 160
+            }
+          ],
+          "stats": {
+            "ratio_comparisons": 2,
+            "items_examined": 3
+          }
+        },
+        "measurement": {
+          "seconds_median": 1.2800097465515137e-05,
+          "peak_python_bytes": 624
+        }
+      },
+      "dp_01": {
+        "result": {
+          "value": 220,
+          "selected": [
+            "K2",
+            "K3"
+          ],
+          "weight": 50,
+          "dp": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              60,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              100,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              160,
+              180,
+              180,
+              180,
+              180,
+              180,
+              180,
+              180,
+              180,
+              180,
+              180,
+              220
+            ]
+          ],
+          "traceback": [
+            {
+              "item": "K3",
+              "capacity": 50,
+              "take": true,
+              "optimum": 220,
+              "exclude": 160
+            },
+            {
+              "item": "K2",
+              "capacity": 20,
+              "take": true,
+              "optimum": 100,
+              "exclude": 60
+            },
+            {
+              "item": "K1",
+              "capacity": 0,
+              "take": false,
+              "optimum": 0,
+              "exclude": 0
+            }
+          ],
+          "stats": {
+            "states_evaluated": 153,
+            "include_alternatives": 93,
+            "table_cells": 204
+          }
+        },
+        "measurement": {
+          "seconds_median": 5.310028791427612e-05,
+          "peak_python_bytes": 2256
+        }
+      }
+    },
+    "quick_response": {
+      "cases": 100,
+      "n": 40,
+      "capacity": 100,
+      "seed": 408,
+      "mean_ratio": 0.9920815101620546,
+      "minimum_ratio": 0.9473684210526315,
+      "exact_matches": 51,
+      "heuristic_seconds_total": 0.009339194744825363,
+      "dp_seconds_total": 0.08338150149211287,
+      "worst_case": {
+        "trial": 50,
+        "items": [
+          [
+            "0",
+            30,
+            1
+          ],
+          [
+            "1",
+            29,
+            95
+          ],
+          [
+            "2",
+            38,
+            83
+          ],
+          [
+            "3",
+            28,
+            26
+          ],
+          [
+            "4",
+            13,
+            79
+          ],
+          [
+            "5",
+            29,
+            41
+          ],
+          [
+            "6",
+            21,
+            7
+          ],
+          [
+            "7",
+            16,
+            79
+          ],
+          [
+            "8",
+            7,
+            72
+          ],
+          [
+            "9",
+            38,
+            92
+          ],
+          [
+            "10",
+            40,
+            11
+          ],
+          [
+            "11",
+            3,
+            24
+          ],
+          [
+            "12",
+            11,
+            53
+          ],
+          [
+            "13",
+            16,
+            41
+          ],
+          [
+            "14",
+            24,
+            57
+          ],
+          [
+            "15",
+            39,
+            58
+          ],
+          [
+            "16",
+            32,
+            63
+          ],
+          [
+            "17",
+            17,
+            57
+          ],
+          [
+            "18",
+            11,
+            51
+          ],
+          [
+            "19",
+            35,
+            40
+          ],
+          [
+            "20",
+            29,
+            59
+          ],
+          [
+            "21",
+            25,
+            45
+          ],
+          [
+            "22",
+            1,
+            5
+          ],
+          [
+            "23",
+            25,
+            32
+          ],
+          [
+            "24",
+            24,
+            86
+          ],
+          [
+            "25",
+            33,
+            37
+          ],
+          [
+            "26",
+            22,
+            36
+          ],
+          [
+            "27",
+            12,
+            50
+          ],
+          [
+            "28",
+            40,
+            50
+          ],
+          [
+            "29",
+            24,
+            49
+          ],
+          [
+            "30",
+            17,
+            38
+          ],
+          [
+            "31",
+            9,
+            20
+          ],
+          [
+            "32",
+            14,
+            74
+          ],
+          [
+            "33",
+            9,
+            6
+          ],
+          [
+            "34",
+            37,
+            2
+          ],
+          [
+            "35",
+            30,
+            85
+          ],
+          [
+            "36",
+            5,
+            87
+          ],
+          [
+            "37",
+            33,
+            74
+          ],
+          [
+            "38",
+            1,
+            20
+          ],
+          [
+            "39",
+            19,
+            88
+          ]
+        ],
+        "ratio": 0.9473684210526315,
+        "fast": 594,
+        "exact": 627
+      }
+    }
+  },
+  "routing": {
+    "vertices": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H"
+    ],
+    "normal_edges": [
+      [
+        "A",
+        "B",
+        2
+      ],
+      [
+        "A",
+        "C",
+        5
+      ],
+      [
+        "A",
+        "D",
+        9
+      ],
+      [
+        "B",
+        "D",
+        2
+      ],
+      [
+        "B",
+        "E",
+        7
+      ],
+      [
+        "C",
+        "B",
+        4
+      ],
+      [
+        "C",
+        "D",
+        4
+      ],
+      [
+        "C",
+        "F",
+        10
+      ],
+      [
+        "D",
+        "E",
+        2
+      ],
+      [
+        "D",
+        "G",
+        7
+      ],
+      [
+        "E",
+        "F",
+        2
+      ],
+      [
+        "E",
+        "H",
+        9
+      ],
+      [
+        "F",
+        "G",
+        2
+      ],
+      [
+        "G",
+        "H",
+        2
+      ],
+      [
+        "A",
+        "H",
+        30
+      ]
+    ],
+    "negative_edges": [
+      [
+        "A",
+        "B",
+        2
+      ],
+      [
+        "A",
+        "C",
+        5
+      ],
+      [
+        "A",
+        "D",
+        9
+      ],
+      [
+        "B",
+        "D",
+        2
+      ],
+      [
+        "B",
+        "E",
+        7
+      ],
+      [
+        "C",
+        "B",
+        -4
+      ],
+      [
+        "C",
+        "D",
+        4
+      ],
+      [
+        "C",
+        "F",
+        10
+      ],
+      [
+        "D",
+        "E",
+        2
+      ],
+      [
+        "D",
+        "G",
+        7
+      ],
+      [
+        "E",
+        "F",
+        2
+      ],
+      [
+        "E",
+        "H",
+        9
+      ],
+      [
+        "F",
+        "G",
+        2
+      ],
+      [
+        "G",
+        "H",
+        2
+      ],
+      [
+        "A",
+        "H",
+        30
+      ]
+    ],
+    "cycle_edges": [
+      [
+        "A",
+        "B",
+        2
+      ],
+      [
+        "A",
+        "C",
+        5
+      ],
+      [
+        "A",
+        "D",
+        9
+      ],
+      [
+        "B",
+        "D",
+        2
+      ],
+      [
+        "B",
+        "E",
+        7
+      ],
+      [
+        "C",
+        "B",
+        -4
+      ],
+      [
+        "C",
+        "D",
+        4
+      ],
+      [
+        "C",
+        "F",
+        10
+      ],
+      [
+        "D",
+        "E",
+        2
+      ],
+      [
+        "D",
+        "G",
+        7
+      ],
+      [
+        "E",
+        "F",
+        2
+      ],
+      [
+        "E",
+        "H",
+        9
+      ],
+      [
+        "F",
+        "G",
+        2
+      ],
+      [
+        "G",
+        "H",
+        2
+      ],
+      [
+        "A",
+        "H",
+        30
+      ],
+      [
+        "H",
+        "C",
+        -7
+      ]
+    ],
+    "normal": {
+      "distances": {
+        "A": 0,
+        "B": 2,
+        "C": 5,
+        "D": 4,
+        "E": 6,
+        "F": 8,
+        "G": 10,
+        "H": 12
+      },
+      "predecessors": {
+        "A": null,
+        "B": "A",
+        "C": "A",
+        "D": "B",
+        "E": "D",
+        "F": "E",
+        "G": "F",
+        "H": "G"
+      },
+      "finalised": [
+        "A",
+        "B",
+        "D",
+        "C",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "paths": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "A",
+          "B"
+        ],
+        "C": [
+          "A",
+          "C"
+        ],
+        "D": [
+          "A",
+          "B",
+          "D"
+        ],
+        "E": [
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "F": [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F"
+        ],
+        "G": [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "H": [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ]
+      },
+      "trace": [
+        {
+          "finalised": "A",
+          "distance": 0,
+          "updates": [
+            {
+              "vertex": "B",
+              "old": "INF",
+              "new": 2,
+              "via": "A"
+            },
+            {
+              "vertex": "C",
+              "old": "INF",
+              "new": 5,
+              "via": "A"
+            },
+            {
+              "vertex": "D",
+              "old": "INF",
+              "new": 9,
+              "via": "A"
+            },
+            {
+              "vertex": "H",
+              "old": "INF",
+              "new": 30,
+              "via": "A"
+            }
+          ]
+        },
+        {
+          "finalised": "B",
+          "distance": 2,
+          "updates": [
+            {
+              "vertex": "D",
+              "old": 9,
+              "new": 4,
+              "via": "B"
+            },
+            {
+              "vertex": "E",
+              "old": "INF",
+              "new": 9,
+              "via": "B"
+            }
+          ]
+        },
+        {
+          "finalised": "D",
+          "distance": 4,
+          "updates": [
+            {
+              "vertex": "E",
+              "old": 9,
+              "new": 6,
+              "via": "D"
+            },
+            {
+              "vertex": "G",
+              "old": "INF",
+              "new": 11,
+              "via": "D"
+            }
+          ]
+        },
+        {
+          "finalised": "C",
+          "distance": 5,
+          "updates": [
+            {
+              "vertex": "F",
+              "old": "INF",
+              "new": 15,
+              "via": "C"
+            }
+          ]
+        },
+        {
+          "finalised": "E",
+          "distance": 6,
+          "updates": [
+            {
+              "vertex": "F",
+              "old": 15,
+              "new": 8,
+              "via": "E"
+            },
+            {
+              "vertex": "H",
+              "old": 30,
+              "new": 15,
+              "via": "E"
+            }
+          ]
+        },
+        {
+          "finalised": "F",
+          "distance": 8,
+          "updates": [
+            {
+              "vertex": "G",
+              "old": 11,
+              "new": 10,
+              "via": "F"
+            }
+          ]
+        },
+        {
+          "finalised": "G",
+          "distance": 10,
+          "updates": [
+            {
+              "vertex": "H",
+              "old": 15,
+              "new": 12,
+              "via": "G"
+            }
+          ]
+        },
+        {
+          "finalised": "H",
+          "distance": 12,
+          "updates": []
+        }
+      ],
+      "stats": {
+        "edge_attempts": 15,
+        "finalised": 8
+      }
+    },
+    "guarded_rejection": "Dijkstra requires nonnegative edge weights",
+    "unsafe_demo": {
+      "distances": {
+        "A": 0,
+        "B": 2,
+        "C": 5,
+        "D": 4,
+        "E": 6,
+        "F": 8,
+        "G": 10,
+        "H": 12
+      },
+      "predecessors": {
+        "A": null,
+        "B": "A",
+        "C": "A",
+        "D": "B",
+        "E": "D",
+        "F": "E",
+        "G": "F",
+        "H": "G"
+      },
+      "finalised": [
+        "A",
+        "B",
+        "D",
+        "C",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "paths": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "A",
+          "B"
+        ],
+        "C": [
+          "A",
+          "C"
+        ],
+        "D": [
+          "A",
+          "B",
+          "D"
+        ],
+        "E": [
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "F": [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F"
+        ],
+        "G": [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "H": [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ]
+      },
+      "trace": [
+        {
+          "finalised": "A",
+          "distance": 0,
+          "updates": [
+            {
+              "vertex": "B",
+              "old": "INF",
+              "new": 2,
+              "via": "A"
+            },
+            {
+              "vertex": "C",
+              "old": "INF",
+              "new": 5,
+              "via": "A"
+            },
+            {
+              "vertex": "D",
+              "old": "INF",
+              "new": 9,
+              "via": "A"
+            },
+            {
+              "vertex": "H",
+              "old": "INF",
+              "new": 30,
+              "via": "A"
+            }
+          ]
+        },
+        {
+          "finalised": "B",
+          "distance": 2,
+          "updates": [
+            {
+              "vertex": "D",
+              "old": 9,
+              "new": 4,
+              "via": "B"
+            },
+            {
+              "vertex": "E",
+              "old": "INF",
+              "new": 9,
+              "via": "B"
+            }
+          ]
+        },
+        {
+          "finalised": "D",
+          "distance": 4,
+          "updates": [
+            {
+              "vertex": "E",
+              "old": 9,
+              "new": 6,
+              "via": "D"
+            },
+            {
+              "vertex": "G",
+              "old": "INF",
+              "new": 11,
+              "via": "D"
+            }
+          ]
+        },
+        {
+          "finalised": "C",
+          "distance": 5,
+          "updates": [
+            {
+              "vertex": "F",
+              "old": "INF",
+              "new": 15,
+              "via": "C"
+            }
+          ]
+        },
+        {
+          "finalised": "E",
+          "distance": 6,
+          "updates": [
+            {
+              "vertex": "F",
+              "old": 15,
+              "new": 8,
+              "via": "E"
+            },
+            {
+              "vertex": "H",
+              "old": 30,
+              "new": 15,
+              "via": "E"
+            }
+          ]
+        },
+        {
+          "finalised": "F",
+          "distance": 8,
+          "updates": [
+            {
+              "vertex": "G",
+              "old": 11,
+              "new": 10,
+              "via": "F"
+            }
+          ]
+        },
+        {
+          "finalised": "G",
+          "distance": 10,
+          "updates": [
+            {
+              "vertex": "H",
+              "old": 15,
+              "new": 12,
+              "via": "G"
+            }
+          ]
+        },
+        {
+          "finalised": "H",
+          "distance": 12,
+          "updates": []
+        }
+      ],
+      "stats": {
+        "edge_attempts": 15,
+        "finalised": 8
+      }
+    },
+    "bellman_ford": {
+      "distances": {
+        "A": 0,
+        "B": 1,
+        "C": 5,
+        "D": 3,
+        "E": 5,
+        "F": 7,
+        "G": 9,
+        "H": 11
+      },
+      "predecessors": {
+        "A": null,
+        "B": "C",
+        "C": "A",
+        "D": "B",
+        "E": "D",
+        "F": "E",
+        "G": "F",
+        "H": "G"
+      },
+      "paths": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "A",
+          "C",
+          "B"
+        ],
+        "C": [
+          "A",
+          "C"
+        ],
+        "D": [
+          "A",
+          "C",
+          "B",
+          "D"
+        ],
+        "E": [
+          "A",
+          "C",
+          "B",
+          "D",
+          "E"
+        ],
+        "F": [
+          "A",
+          "C",
+          "B",
+          "D",
+          "E",
+          "F"
+        ],
+        "G": [
+          "A",
+          "C",
+          "B",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "H": [
+          "A",
+          "C",
+          "B",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ]
+      },
+      "passes": [
+        {
+          "pass_number": 1,
+          "updates": [
+            {
+              "u": "A",
+              "v": "B",
+              "old": "INF",
+              "new": 2
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "old": "INF",
+              "new": 5
+            },
+            {
+              "u": "A",
+              "v": "D",
+              "old": "INF",
+              "new": 9
+            },
+            {
+              "u": "B",
+              "v": "D",
+              "old": 9,
+              "new": 4
+            },
+            {
+              "u": "B",
+              "v": "E",
+              "old": "INF",
+              "new": 9
+            },
+            {
+              "u": "C",
+              "v": "B",
+              "old": 2,
+              "new": 1
+            },
+            {
+              "u": "C",
+              "v": "F",
+              "old": "INF",
+              "new": 15
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "old": 9,
+              "new": 6
+            },
+            {
+              "u": "D",
+              "v": "G",
+              "old": "INF",
+              "new": 11
+            },
+            {
+              "u": "E",
+              "v": "F",
+              "old": 15,
+              "new": 8
+            },
+            {
+              "u": "E",
+              "v": "H",
+              "old": "INF",
+              "new": 15
+            },
+            {
+              "u": "F",
+              "v": "G",
+              "old": 11,
+              "new": 10
+            },
+            {
+              "u": "G",
+              "v": "H",
+              "old": 15,
+              "new": 12
+            }
+          ],
+          "distances": {
+            "A": 0,
+            "B": 1,
+            "C": 5,
+            "D": 4,
+            "E": 6,
+            "F": 8,
+            "G": 10,
+            "H": 12
+          }
+        },
+        {
+          "pass_number": 2,
+          "updates": [
+            {
+              "u": "B",
+              "v": "D",
+              "old": 4,
+              "new": 3
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "old": 6,
+              "new": 5
+            },
+            {
+              "u": "E",
+              "v": "F",
+              "old": 8,
+              "new": 7
+            },
+            {
+              "u": "F",
+              "v": "G",
+              "old": 10,
+              "new": 9
+            },
+            {
+              "u": "G",
+              "v": "H",
+              "old": 12,
+              "new": 11
+            }
+          ],
+          "distances": {
+            "A": 0,
+            "B": 1,
+            "C": 5,
+            "D": 3,
+            "E": 5,
+            "F": 7,
+            "G": 9,
+            "H": 11
+          }
+        },
+        {
+          "pass_number": 3,
+          "updates": [],
+          "distances": {
+            "A": 0,
+            "B": 1,
+            "C": 5,
+            "D": 3,
+            "E": 5,
+            "F": 7,
+            "G": 9,
+            "H": 11
+          }
+        }
+      ],
+      "stats": {
+        "edge_attempts": 45,
+        "passes": 3
+      }
+    },
+    "negative_cycle_messages": {
+      "bellman_ford": "Reachable negative cycle: extra relaxation B->D",
+      "floyd": "Negative diagonal: finite all-pairs answers are unsafe"
+    },
+    "floyd": {
+      "matrix": [
+        [
+          0,
+          1,
+          5,
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        [
+          "INF",
+          0,
+          "INF",
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        [
+          "INF",
+          -4,
+          0,
+          -2,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          "INF",
+          "INF",
+          "INF",
+          0,
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          0,
+          2,
+          4
+        ],
+        [
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          0,
+          2
+        ],
+        [
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          "INF",
+          0
+        ]
+      ],
+      "trace": [
+        {
+          "intermediate": "A",
+          "improvements": 0
+        },
+        {
+          "intermediate": "B",
+          "improvements": 4
+        },
+        {
+          "intermediate": "C",
+          "improvements": 4
+        },
+        {
+          "intermediate": "D",
+          "improvements": 6
+        },
+        {
+          "intermediate": "E",
+          "improvements": 8
+        },
+        {
+          "intermediate": "F",
+          "improvements": 5
+        },
+        {
+          "intermediate": "G",
+          "improvements": 6
+        },
+        {
+          "intermediate": "H",
+          "improvements": 0
+        }
+      ],
+      "states": 512
+    },
+    "warshall": [
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    ]
+  },
+  "assembly": {
+    "processing": [
+      [
+        7,
+        9,
+        3,
+        4,
+        8,
+        4
+      ],
+      [
+        8,
+        5,
+        6,
+        4,
+        5,
+        7
+      ]
+    ],
+    "transfer": [
+      [
+        2,
+        3,
+        1,
+        3,
+        4
+      ],
+      [
+        2,
+        1,
+        2,
+        2,
+        1
+      ]
+    ],
+    "entry": [
+      2,
+      4
+    ],
+    "exit": [
+      3,
+      2
+    ],
+    "baseline": {
+      "time": 38,
+      "route": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "transfers": [
+        {
+          "after_station": 1,
+          "from_line": 1,
+          "to_line": 2
+        },
+        {
+          "after_station": 2,
+          "from_line": 2,
+          "to_line": 1
+        },
+        {
+          "after_station": 3,
+          "from_line": 1,
+          "to_line": 2
+        },
+        {
+          "after_station": 5,
+          "from_line": 2,
+          "to_line": 1
+        }
+      ],
+      "dp": [
+        [
+          9,
+          18,
+          20,
+          24,
+          32,
+          35
+        ],
+        [
+          12,
+          16,
+          22,
+          25,
+          30,
+          37
+        ]
+      ],
+      "trace": [
+        {
+          "station": 2,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 18,
+              "transfer": 23,
+              "selected": "stay",
+              "optimum": 18
+            },
+            {
+              "line": 2,
+              "stay": 17,
+              "transfer": 16,
+              "selected": "transfer",
+              "optimum": 16
+            }
+          ]
+        },
+        {
+          "station": 3,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 21,
+              "transfer": 20,
+              "selected": "transfer",
+              "optimum": 20
+            },
+            {
+              "line": 2,
+              "stay": 22,
+              "transfer": 27,
+              "selected": "stay",
+              "optimum": 22
+            }
+          ]
+        },
+        {
+          "station": 4,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 24,
+              "transfer": 28,
+              "selected": "stay",
+              "optimum": 24
+            },
+            {
+              "line": 2,
+              "stay": 26,
+              "transfer": 25,
+              "selected": "transfer",
+              "optimum": 25
+            }
+          ]
+        },
+        {
+          "station": 5,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 32,
+              "transfer": 35,
+              "selected": "stay",
+              "optimum": 32
+            },
+            {
+              "line": 2,
+              "stay": 30,
+              "transfer": 32,
+              "selected": "stay",
+              "optimum": 30
+            }
+          ]
+        },
+        {
+          "station": 6,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 36,
+              "transfer": 35,
+              "selected": "transfer",
+              "optimum": 35
+            },
+            {
+              "line": 2,
+              "stay": 37,
+              "transfer": 43,
+              "selected": "stay",
+              "optimum": 37
+            }
+          ]
+        }
+      ],
+      "exit_totals": [
+        38,
+        39
+      ],
+      "stats": {
+        "states": 12,
+        "predecessor_slots": 12
+      }
+    },
+    "transfer_changed": {
+      "time": 39,
+      "route": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "transfers": [
+        {
+          "after_station": 1,
+          "from_line": 1,
+          "to_line": 2
+        },
+        {
+          "after_station": 5,
+          "from_line": 2,
+          "to_line": 1
+        }
+      ],
+      "dp": [
+        [
+          9,
+          18,
+          21,
+          25,
+          33,
+          36
+        ],
+        [
+          12,
+          16,
+          22,
+          26,
+          31,
+          38
+        ]
+      ],
+      "trace": [
+        {
+          "station": 2,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 18,
+              "transfer": 23,
+              "selected": "stay",
+              "optimum": 18
+            },
+            {
+              "line": 2,
+              "stay": 17,
+              "transfer": 16,
+              "selected": "transfer",
+              "optimum": 16
+            }
+          ]
+        },
+        {
+          "station": 3,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 21,
+              "transfer": 39,
+              "selected": "stay",
+              "optimum": 21
+            },
+            {
+              "line": 2,
+              "stay": 22,
+              "transfer": 27,
+              "selected": "stay",
+              "optimum": 22
+            }
+          ]
+        },
+        {
+          "station": 4,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 25,
+              "transfer": 28,
+              "selected": "stay",
+              "optimum": 25
+            },
+            {
+              "line": 2,
+              "stay": 26,
+              "transfer": 26,
+              "selected": "stay",
+              "optimum": 26
+            }
+          ]
+        },
+        {
+          "station": 5,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 33,
+              "transfer": 36,
+              "selected": "stay",
+              "optimum": 33
+            },
+            {
+              "line": 2,
+              "stay": 31,
+              "transfer": 33,
+              "selected": "stay",
+              "optimum": 31
+            }
+          ]
+        },
+        {
+          "station": 6,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 37,
+              "transfer": 36,
+              "selected": "transfer",
+              "optimum": 36
+            },
+            {
+              "line": 2,
+              "stay": 38,
+              "transfer": 44,
+              "selected": "stay",
+              "optimum": 38
+            }
+          ]
+        }
+      ],
+      "exit_totals": [
+        39,
+        40
+      ],
+      "stats": {
+        "states": 12,
+        "predecessor_slots": 12
+      }
+    },
+    "machine_changed": {
+      "time": 39,
+      "route": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "transfers": [
+        {
+          "after_station": 1,
+          "from_line": 1,
+          "to_line": 2
+        },
+        {
+          "after_station": 2,
+          "from_line": 2,
+          "to_line": 1
+        }
+      ],
+      "dp": [
+        [
+          9,
+          18,
+          20,
+          24,
+          32,
+          36
+        ],
+        [
+          12,
+          16,
+          22,
+          25,
+          75,
+          43
+        ]
+      ],
+      "trace": [
+        {
+          "station": 2,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 18,
+              "transfer": 23,
+              "selected": "stay",
+              "optimum": 18
+            },
+            {
+              "line": 2,
+              "stay": 17,
+              "transfer": 16,
+              "selected": "transfer",
+              "optimum": 16
+            }
+          ]
+        },
+        {
+          "station": 3,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 21,
+              "transfer": 20,
+              "selected": "transfer",
+              "optimum": 20
+            },
+            {
+              "line": 2,
+              "stay": 22,
+              "transfer": 27,
+              "selected": "stay",
+              "optimum": 22
+            }
+          ]
+        },
+        {
+          "station": 4,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 24,
+              "transfer": 28,
+              "selected": "stay",
+              "optimum": 24
+            },
+            {
+              "line": 2,
+              "stay": 26,
+              "transfer": 25,
+              "selected": "transfer",
+              "optimum": 25
+            }
+          ]
+        },
+        {
+          "station": 5,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 32,
+              "transfer": 35,
+              "selected": "stay",
+              "optimum": 32
+            },
+            {
+              "line": 2,
+              "stay": 75,
+              "transfer": 77,
+              "selected": "stay",
+              "optimum": 75
+            }
+          ]
+        },
+        {
+          "station": 6,
+          "choices": [
+            {
+              "line": 1,
+              "stay": 36,
+              "transfer": 80,
+              "selected": "stay",
+              "optimum": 36
+            },
+            {
+              "line": 2,
+              "stay": 82,
+              "transfer": 43,
+              "selected": "transfer",
+              "optimum": 43
+            }
+          ]
+        }
+      ],
+      "exit_totals": [
+        39,
+        45
+      ],
+      "stats": {
+        "states": 12,
+        "predecessor_slots": 12
+      }
+    }
+  },
+  "mst": {
+    "unique": {
+      "edges": [
+        [
+          "A",
+          "B",
+          4
+        ],
+        [
+          "A",
+          "C",
+          3
+        ],
+        [
+          "B",
+          "C",
+          2
+        ],
+        [
+          "B",
+          "D",
+          5
+        ],
+        [
+          "C",
+          "D",
+          7
+        ],
+        [
+          "C",
+          "E",
+          8
+        ],
+        [
+          "D",
+          "E",
+          6
+        ],
+        [
+          "D",
+          "F",
+          10
+        ],
+        [
+          "E",
+          "F",
+          9
+        ],
+        [
+          "E",
+          "G",
+          11
+        ],
+        [
+          "F",
+          "G",
+          12
+        ],
+        [
+          "F",
+          "H",
+          14
+        ],
+        [
+          "G",
+          "H",
+          13
+        ],
+        [
+          "E",
+          "H",
+          15
+        ]
+      ],
+      "kruskal": {
+        "edges": [
+          [
+            "B",
+            "C",
+            2
+          ],
+          [
+            "A",
+            "C",
+            3
+          ],
+          [
+            "B",
+            "D",
+            5
+          ],
+          [
+            "D",
+            "E",
+            6
+          ],
+          [
+            "E",
+            "F",
+            9
+          ],
+          [
+            "E",
+            "G",
+            11
+          ],
+          [
+            "G",
+            "H",
+            13
+          ]
+        ],
+        "cost": 49,
+        "trace": [
+          {
+            "edge": [
+              "B",
+              "C",
+              2
+            ],
+            "components": [
+              "B",
+              "C"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "A",
+              "C",
+              3
+            ],
+            "components": [
+              "A",
+              "B"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "A",
+              "B",
+              4
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "B",
+              "D",
+              5
+            ],
+            "components": [
+              "B",
+              "D"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "D",
+              "E",
+              6
+            ],
+            "components": [
+              "B",
+              "E"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "C",
+              "D",
+              7
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "C",
+              "E",
+              8
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "E",
+              "F",
+              9
+            ],
+            "components": [
+              "B",
+              "F"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "D",
+              "F",
+              10
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "E",
+              "G",
+              11
+            ],
+            "components": [
+              "B",
+              "G"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "F",
+              "G",
+              12
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "G",
+              "H",
+              13
+            ],
+            "components": [
+              "B",
+              "H"
+            ],
+            "accepted": true
+          }
+        ],
+        "stats": {
+          "edges_tested": 12
+        }
+      },
+      "prim": {
+        "edges": [
+          [
+            "B",
+            "C",
+            2
+          ],
+          [
+            "A",
+            "C",
+            3
+          ],
+          [
+            "B",
+            "D",
+            5
+          ],
+          [
+            "D",
+            "E",
+            6
+          ],
+          [
+            "E",
+            "F",
+            9
+          ],
+          [
+            "E",
+            "G",
+            11
+          ],
+          [
+            "G",
+            "H",
+            13
+          ]
+        ],
+        "cost": 49,
+        "trace": [
+          {
+            "edge": [
+              "C",
+              "B",
+              2
+            ],
+            "cut": [
+              "C"
+            ]
+          },
+          {
+            "edge": [
+              "C",
+              "A",
+              3
+            ],
+            "cut": [
+              "B",
+              "C"
+            ]
+          },
+          {
+            "edge": [
+              "B",
+              "D",
+              5
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "edge": [
+              "D",
+              "E",
+              6
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "edge": [
+              "E",
+              "F",
+              9
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          },
+          {
+            "edge": [
+              "E",
+              "G",
+              11
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          },
+          {
+            "edge": [
+              "G",
+              "H",
+              13
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G"
+            ]
+          }
+        ],
+        "stats": {
+          "heap_pops": 12
+        }
+      },
+      "boruvka": {
+        "edges": [
+          [
+            "A",
+            "C",
+            3
+          ],
+          [
+            "B",
+            "C",
+            2
+          ],
+          [
+            "B",
+            "D",
+            5
+          ],
+          [
+            "D",
+            "E",
+            6
+          ],
+          [
+            "E",
+            "F",
+            9
+          ],
+          [
+            "E",
+            "G",
+            11
+          ],
+          [
+            "G",
+            "H",
+            13
+          ]
+        ],
+        "cost": 49,
+        "trace": [
+          {
+            "proposals": {
+              "A": [
+                "A",
+                "C",
+                3
+              ],
+              "B": [
+                "B",
+                "C",
+                2
+              ],
+              "C": [
+                "B",
+                "C",
+                2
+              ],
+              "D": [
+                "B",
+                "D",
+                5
+              ],
+              "E": [
+                "D",
+                "E",
+                6
+              ],
+              "F": [
+                "E",
+                "F",
+                9
+              ],
+              "G": [
+                "E",
+                "G",
+                11
+              ],
+              "H": [
+                "G",
+                "H",
+                13
+              ]
+            },
+            "accepted": [
+              [
+                "A",
+                "C",
+                3
+              ],
+              [
+                "B",
+                "C",
+                2
+              ],
+              [
+                "B",
+                "D",
+                5
+              ],
+              [
+                "D",
+                "E",
+                6
+              ],
+              [
+                "E",
+                "F",
+                9
+              ],
+              [
+                "E",
+                "G",
+                11
+              ],
+              [
+                "G",
+                "H",
+                13
+              ]
+            ]
+          }
+        ],
+        "stats": {
+          "rounds": 1,
+          "edge_scans": 14
+        }
+      },
+      "exhaustive": {
+        "cost": 49,
+        "optimal_trees": 1,
+        "trees": [
+          [
+            [
+              "A",
+              "C",
+              3
+            ],
+            [
+              "B",
+              "C",
+              2
+            ],
+            [
+              "B",
+              "D",
+              5
+            ],
+            [
+              "D",
+              "E",
+              6
+            ],
+            [
+              "E",
+              "F",
+              9
+            ],
+            [
+              "E",
+              "G",
+              11
+            ],
+            [
+              "G",
+              "H",
+              13
+            ]
+          ]
+        ]
+      }
+    },
+    "tied": {
+      "edges": [
+        [
+          "A",
+          "B",
+          3
+        ],
+        [
+          "A",
+          "C",
+          3
+        ],
+        [
+          "B",
+          "C",
+          2
+        ],
+        [
+          "B",
+          "D",
+          5
+        ],
+        [
+          "C",
+          "D",
+          7
+        ],
+        [
+          "C",
+          "E",
+          8
+        ],
+        [
+          "D",
+          "E",
+          6
+        ],
+        [
+          "D",
+          "F",
+          10
+        ],
+        [
+          "E",
+          "F",
+          9
+        ],
+        [
+          "E",
+          "G",
+          11
+        ],
+        [
+          "F",
+          "G",
+          12
+        ],
+        [
+          "F",
+          "H",
+          14
+        ],
+        [
+          "G",
+          "H",
+          13
+        ],
+        [
+          "E",
+          "H",
+          15
+        ]
+      ],
+      "kruskal": {
+        "edges": [
+          [
+            "B",
+            "C",
+            2
+          ],
+          [
+            "A",
+            "B",
+            3
+          ],
+          [
+            "B",
+            "D",
+            5
+          ],
+          [
+            "D",
+            "E",
+            6
+          ],
+          [
+            "E",
+            "F",
+            9
+          ],
+          [
+            "E",
+            "G",
+            11
+          ],
+          [
+            "G",
+            "H",
+            13
+          ]
+        ],
+        "cost": 49,
+        "trace": [
+          {
+            "edge": [
+              "B",
+              "C",
+              2
+            ],
+            "components": [
+              "B",
+              "C"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "A",
+              "B",
+              3
+            ],
+            "components": [
+              "A",
+              "B"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "A",
+              "C",
+              3
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "B",
+              "D",
+              5
+            ],
+            "components": [
+              "B",
+              "D"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "D",
+              "E",
+              6
+            ],
+            "components": [
+              "B",
+              "E"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "C",
+              "D",
+              7
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "C",
+              "E",
+              8
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "E",
+              "F",
+              9
+            ],
+            "components": [
+              "B",
+              "F"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "D",
+              "F",
+              10
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "E",
+              "G",
+              11
+            ],
+            "components": [
+              "B",
+              "G"
+            ],
+            "accepted": true
+          },
+          {
+            "edge": [
+              "F",
+              "G",
+              12
+            ],
+            "components": [
+              "B",
+              "B"
+            ],
+            "accepted": false
+          },
+          {
+            "edge": [
+              "G",
+              "H",
+              13
+            ],
+            "components": [
+              "B",
+              "H"
+            ],
+            "accepted": true
+          }
+        ],
+        "stats": {
+          "edges_tested": 12
+        }
+      },
+      "prim": {
+        "edges": [
+          [
+            "B",
+            "C",
+            2
+          ],
+          [
+            "A",
+            "C",
+            3
+          ],
+          [
+            "B",
+            "D",
+            5
+          ],
+          [
+            "D",
+            "E",
+            6
+          ],
+          [
+            "E",
+            "F",
+            9
+          ],
+          [
+            "E",
+            "G",
+            11
+          ],
+          [
+            "G",
+            "H",
+            13
+          ]
+        ],
+        "cost": 49,
+        "trace": [
+          {
+            "edge": [
+              "C",
+              "B",
+              2
+            ],
+            "cut": [
+              "C"
+            ]
+          },
+          {
+            "edge": [
+              "C",
+              "A",
+              3
+            ],
+            "cut": [
+              "B",
+              "C"
+            ]
+          },
+          {
+            "edge": [
+              "B",
+              "D",
+              5
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "edge": [
+              "D",
+              "E",
+              6
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "edge": [
+              "E",
+              "F",
+              9
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          },
+          {
+            "edge": [
+              "E",
+              "G",
+              11
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          },
+          {
+            "edge": [
+              "G",
+              "H",
+              13
+            ],
+            "cut": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G"
+            ]
+          }
+        ],
+        "stats": {
+          "heap_pops": 12
+        }
+      },
+      "boruvka": {
+        "edges": [
+          [
+            "A",
+            "B",
+            3
+          ],
+          [
+            "B",
+            "C",
+            2
+          ],
+          [
+            "B",
+            "D",
+            5
+          ],
+          [
+            "D",
+            "E",
+            6
+          ],
+          [
+            "E",
+            "F",
+            9
+          ],
+          [
+            "E",
+            "G",
+            11
+          ],
+          [
+            "G",
+            "H",
+            13
+          ]
+        ],
+        "cost": 49,
+        "trace": [
+          {
+            "proposals": {
+              "A": [
+                "A",
+                "B",
+                3
+              ],
+              "B": [
+                "B",
+                "C",
+                2
+              ],
+              "C": [
+                "B",
+                "C",
+                2
+              ],
+              "D": [
+                "B",
+                "D",
+                5
+              ],
+              "E": [
+                "D",
+                "E",
+                6
+              ],
+              "F": [
+                "E",
+                "F",
+                9
+              ],
+              "G": [
+                "E",
+                "G",
+                11
+              ],
+              "H": [
+                "G",
+                "H",
+                13
+              ]
+            },
+            "accepted": [
+              [
+                "A",
+                "B",
+                3
+              ],
+              [
+                "B",
+                "C",
+                2
+              ],
+              [
+                "B",
+                "D",
+                5
+              ],
+              [
+                "D",
+                "E",
+                6
+              ],
+              [
+                "E",
+                "F",
+                9
+              ],
+              [
+                "E",
+                "G",
+                11
+              ],
+              [
+                "G",
+                "H",
+                13
+              ]
+            ]
+          }
+        ],
+        "stats": {
+          "rounds": 1,
+          "edge_scans": 14
+        }
+      },
+      "exhaustive": {
+        "cost": 49,
+        "optimal_trees": 2,
+        "trees": [
+          [
+            [
+              "A",
+              "B",
+              3
+            ],
+            [
+              "B",
+              "C",
+              2
+            ],
+            [
+              "B",
+              "D",
+              5
+            ],
+            [
+              "D",
+              "E",
+              6
+            ],
+            [
+              "E",
+              "F",
+              9
+            ],
+            [
+              "E",
+              "G",
+              11
+            ],
+            [
+              "G",
+              "H",
+              13
+            ]
+          ],
+          [
+            [
+              "A",
+              "C",
+              3
+            ],
+            [
+              "B",
+              "C",
+              2
+            ],
+            [
+              "B",
+              "D",
+              5
+            ],
+            [
+              "D",
+              "E",
+              6
+            ],
+            [
+              "E",
+              "F",
+              9
+            ],
+            [
+              "E",
+              "G",
+              11
+            ],
+            [
+              "G",
+              "H",
+              13
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "tsp": {
+    "matrix": [
+      [
+        0,
+        3,
+        5,
+        10,
+        10,
+        6,
+        4
+      ],
+      [
+        3,
+        0,
+        4,
+        7,
+        7,
+        7,
+        5
+      ],
+      [
+        5,
+        4,
+        0,
+        5,
+        9,
+        11,
+        9
+      ],
+      [
+        10,
+        7,
+        5,
+        0,
+        6,
+        8,
+        12
+      ],
+      [
+        10,
+        7,
+        9,
+        6,
+        0,
+        6,
+        12
+      ],
+      [
+        6,
+        7,
+        11,
+        8,
+        6,
+        0,
+        6
+      ],
+      [
+        4,
+        5,
+        9,
+        12,
+        12,
+        6,
+        0
+      ]
+    ],
+    "main": {
+      "cost": 34,
+      "route": [
+        0,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "stats": {
+        "states": 192,
+        "transitions": 480,
+        "dp_and_parent_entries": 384
+      }
+    },
+    "sample_states": [
+      {
+        "mask": 1,
+        "last": 1,
+        "cost": 3,
+        "predecessor": -1
+      },
+      {
+        "mask": 2,
+        "last": 2,
+        "cost": 5,
+        "predecessor": -1
+      },
+      {
+        "mask": 3,
+        "last": 1,
+        "cost": 9,
+        "predecessor": 1
+      },
+      {
+        "mask": 3,
+        "last": 2,
+        "cost": 7,
+        "predecessor": 0
+      },
+      {
+        "mask": 4,
+        "last": 3,
+        "cost": 10,
+        "predecessor": -1
+      },
+      {
+        "mask": 5,
+        "last": 1,
+        "cost": 17,
+        "predecessor": 2
+      },
+      {
+        "mask": 5,
+        "last": 3,
+        "cost": 10,
+        "predecessor": 0
+      },
+      {
+        "mask": 6,
+        "last": 2,
+        "cost": 15,
+        "predecessor": 2
+      },
+      {
+        "mask": 6,
+        "last": 3,
+        "cost": 10,
+        "predecessor": 1
+      },
+      {
+        "mask": 7,
+        "last": 1,
+        "cost": 17,
+        "predecessor": 2
+      },
+      {
+        "mask": 7,
+        "last": 2,
+        "cost": 15,
+        "predecessor": 2
+      },
+      {
+        "mask": 7,
+        "last": 3,
+        "cost": 12,
+        "predecessor": 1
+      },
+      {
+        "mask": 8,
+        "last": 4,
+        "cost": 10,
+        "predecessor": -1
+      },
+      {
+        "mask": 9,
+        "last": 1,
+        "cost": 17,
+        "predecessor": 3
+      },
+      {
+        "mask": 9,
+        "last": 4,
+        "cost": 10,
+        "predecessor": 0
+      },
+      {
+        "mask": 10,
+        "last": 2,
+        "cost": 19,
+        "predecessor": 3
+      }
+    ],
+    "small_matrix": [
+      [
+        0,
+        3,
+        5,
+        10,
+        10
+      ],
+      [
+        3,
+        0,
+        4,
+        7,
+        7
+      ],
+      [
+        5,
+        4,
+        0,
+        5,
+        9
+      ],
+      [
+        10,
+        7,
+        5,
+        0,
+        6
+      ],
+      [
+        10,
+        7,
+        9,
+        6,
+        0
+      ]
+    ],
+    "enumeration": [
+      {
+        "route": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          0
+        ],
+        "cost": 28
+      },
+      {
+        "route": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          0
+        ],
+        "cost": 32
+      },
+      {
+        "route": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          0
+        ],
+        "cost": 34
+      },
+      {
+        "route": [
+          0,
+          1,
+          3,
+          4,
+          2,
+          0
+        ],
+        "cost": 30
+      },
+      {
+        "route": [
+          0,
+          1,
+          4,
+          2,
+          3,
+          0
+        ],
+        "cost": 34
+      },
+      {
+        "route": [
+          0,
+          1,
+          4,
+          3,
+          2,
+          0
+        ],
+        "cost": 26
+      },
+      {
+        "route": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          0
+        ],
+        "cost": 32
+      },
+      {
+        "route": [
+          0,
+          2,
+          1,
+          4,
+          3,
+          0
+        ],
+        "cost": 32
+      },
+      {
+        "route": [
+          0,
+          2,
+          3,
+          1,
+          4,
+          0
+        ],
+        "cost": 34
+      },
+      {
+        "route": [
+          0,
+          2,
+          3,
+          4,
+          1,
+          0
+        ],
+        "cost": 26
+      },
+      {
+        "route": [
+          0,
+          2,
+          4,
+          1,
+          3,
+          0
+        ],
+        "cost": 38
+      },
+      {
+        "route": [
+          0,
+          2,
+          4,
+          3,
+          1,
+          0
+        ],
+        "cost": 30
+      },
+      {
+        "route": [
+          0,
+          3,
+          1,
+          2,
+          4,
+          0
+        ],
+        "cost": 40
+      },
+      {
+        "route": [
+          0,
+          3,
+          1,
+          4,
+          2,
+          0
+        ],
+        "cost": 38
+      },
+      {
+        "route": [
+          0,
+          3,
+          2,
+          1,
+          4,
+          0
+        ],
+        "cost": 36
+      },
+      {
+        "route": [
+          0,
+          3,
+          2,
+          4,
+          1,
+          0
+        ],
+        "cost": 34
+      },
+      {
+        "route": [
+          0,
+          3,
+          4,
+          1,
+          2,
+          0
+        ],
+        "cost": 32
+      },
+      {
+        "route": [
+          0,
+          3,
+          4,
+          2,
+          1,
+          0
+        ],
+        "cost": 32
+      },
+      {
+        "route": [
+          0,
+          4,
+          1,
+          2,
+          3,
+          0
+        ],
+        "cost": 36
+      },
+      {
+        "route": [
+          0,
+          4,
+          1,
+          3,
+          2,
+          0
+        ],
+        "cost": 34
+      },
+      {
+        "route": [
+          0,
+          4,
+          2,
+          1,
+          3,
+          0
+        ],
+        "cost": 40
+      },
+      {
+        "route": [
+          0,
+          4,
+          2,
+          3,
+          1,
+          0
+        ],
+        "cost": 34
+      },
+      {
+        "route": [
+          0,
+          4,
+          3,
+          1,
+          2,
+          0
+        ],
+        "cost": 32
+      },
+      {
+        "route": [
+          0,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "cost": 28
+      }
+    ],
+    "small_dp": {
+      "cost": 26,
+      "route": [
+        0,
+        2,
+        3,
+        4,
+        1,
+        0
+      ],
+      "stats": {
+        "states": 32,
+        "transitions": 48,
+        "dp_and_parent_entries": 64
+      }
+    },
+    "growth": [
+      {
+        "deliveries": 4,
+        "total_vertices": 5,
+        "states": 32,
+        "transitions": 48,
+        "dp_and_parent_entries": 64,
+        "seconds_median": 4.730001091957092e-05,
+        "peak_python_bytes": 3024
+      },
+      {
+        "deliveries": 5,
+        "total_vertices": 6,
+        "states": 80,
+        "transitions": 160,
+        "dp_and_parent_entries": 160,
+        "seconds_median": 0.00010529998689889908,
+        "peak_python_bytes": 5752
+      },
+      {
+        "deliveries": 6,
+        "total_vertices": 7,
+        "states": 192,
+        "transitions": 480,
+        "dp_and_parent_entries": 384,
+        "seconds_median": 0.00028220005333423615,
+        "peak_python_bytes": 23384
+      },
+      {
+        "deliveries": 7,
+        "total_vertices": 8,
+        "states": 448,
+        "transitions": 1344,
+        "dp_and_parent_entries": 896,
+        "seconds_median": 0.0006813998334109783,
+        "peak_python_bytes": 46416
+      },
+      {
+        "deliveries": 8,
+        "total_vertices": 9,
+        "states": 1024,
+        "transitions": 3584,
+        "dp_and_parent_entries": 2048,
+        "seconds_median": 0.0017462996765971184,
+        "peak_python_bytes": 92504
+      },
+      {
+        "deliveries": 10,
+        "total_vertices": 11,
+        "states": 5120,
+        "transitions": 23040,
+        "dp_and_parent_entries": 10240,
+        "seconds_median": 0.010575900319963694,
+        "peak_python_bytes": 781804
+      },
+      {
+        "deliveries": 12,
+        "total_vertices": 13,
+        "states": 24576,
+        "transitions": 135168,
+        "dp_and_parent_entries": 49152,
+        "seconds_median": 0.061513399705290794,
+        "peak_python_bytes": 5658320
+      }
+    ]
+  }
+}

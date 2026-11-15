@@ -1,0 +1,27 @@
+TASK 2 KNAPSACK - actual selections and work counters
+
+normal fractional: value=27.0, selected=[{'id': 'A', 'fraction': '1', 'weight': 2.0, 'value': 12.0}, {'id': 'B', 'fraction': '1', 'weight': 3.0, 'value': 15.0}]
+Work: {'ratio_comparisons': 2, 'items_examined': 2, 'output_items': 2} | {'seconds_median': 3.949971869587898e-05, 'peak_python_bytes': 888}
+Decisions: [{'id': 'A', 'density': 6.0, 'fraction': '1', 'remaining': 3.0, 'value_so_far': 12.0}, {'id': 'B', 'density': 5.0, 'fraction': '1', 'remaining': 0.0, 'value_so_far': 27.0}]
+
+normal greedy_01: value=27, selected=['A', 'B']
+Work: {'ratio_comparisons': 2, 'items_examined': 3} | {'seconds_median': 1.0699965059757233e-05, 'peak_python_bytes': 560}
+Decisions: [{'id': 'A', 'take': True, 'remaining': 3, 'value': 12}, {'id': 'B', 'take': True, 'remaining': 0, 'value': 27}, {'id': 'C', 'take': False, 'remaining': 0, 'value': 27}]
+
+normal dp_01: value=27, selected=['A', 'B']
+Work: {'states_evaluated': 18, 'include_alternatives': 8, 'table_cells': 24} | {'seconds_median': 1.5600118786096573e-05, 'peak_python_bytes': 816}
+Decisions: [{'item': 'C', 'capacity': 5, 'take': False, 'optimum': 27, 'exclude': 27}, {'item': 'B', 'capacity': 5, 'take': True, 'optimum': 27, 'exclude': 12}, {'item': 'A', 'capacity': 2, 'take': True, 'optimum': 12, 'exclude': 0}]
+
+counterexample fractional: value=240.0, selected=[{'id': 'K1', 'fraction': '1', 'weight': 10.0, 'value': 60.0}, {'id': 'K2', 'fraction': '1', 'weight': 20.0, 'value': 100.0}, {'id': 'K3', 'fraction': '2/3', 'weight': 20.0, 'value': 80.0}]
+Work: {'ratio_comparisons': 2, 'items_examined': 3, 'output_items': 3} | {'seconds_median': 5.020014941692352e-05, 'peak_python_bytes': 1060}
+Decisions: [{'id': 'K1', 'density': 6.0, 'fraction': '1', 'remaining': 40.0, 'value_so_far': 60.0}, {'id': 'K2', 'density': 5.0, 'fraction': '1', 'remaining': 20.0, 'value_so_far': 160.0}, {'id': 'K3', 'density': 4.0, 'fraction': '2/3', 'remaining': 0.0, 'value_so_far': 240.0}]
+
+counterexample greedy_01: value=160, selected=['K1', 'K2']
+Work: {'ratio_comparisons': 2, 'items_examined': 3} | {'seconds_median': 1.2800097465515137e-05, 'peak_python_bytes': 624}
+Decisions: [{'id': 'K1', 'take': True, 'remaining': 40, 'value': 60}, {'id': 'K2', 'take': True, 'remaining': 20, 'value': 160}, {'id': 'K3', 'take': False, 'remaining': 20, 'value': 160}]
+
+counterexample dp_01: value=220, selected=['K2', 'K3']
+Work: {'states_evaluated': 153, 'include_alternatives': 93, 'table_cells': 204} | {'seconds_median': 5.310028791427612e-05, 'peak_python_bytes': 2256}
+Decisions: [{'item': 'K3', 'capacity': 50, 'take': True, 'optimum': 220, 'exclude': 160}, {'item': 'K2', 'capacity': 20, 'take': True, 'optimum': 100, 'exclude': 60}, {'item': 'K1', 'capacity': 0, 'take': False, 'optimum': 0, 'exclude': 0}]
+
+100-case quick-response experiment: {"cases": 100, "n": 40, "capacity": 100, "seed": 408, "mean_ratio": 0.9920815101620546, "minimum_ratio": 0.9473684210526315, "exact_matches": 51, "heuristic_seconds_total": 0.009339194744825363, "dp_seconds_total": 0.08338150149211287, "worst_case": {"trial": 50, "items": [["0", 30, 1], ["1", 29, 95], ["2", 38, 83], ["3", 28, 26], ["4", 13, 79], ["5", 29, 41], ["6", 21, 7], ["7", 16, 79], ["8", 7, 72], ["9", 38, 92], ["10", 40, 11], ["11", 3, 24], ["12", 11, 53], ["13", 16, 41], ["14", 24, 57], ["15", 39, 58], ["16", 32, 63], ["17", 17, 57], ["18", 11, 51], ["19", 35, 40], ["20", 29, 59], ["21", 25, 45], ["22", 1, 5], ["23", 25, 32], ["24", 24, 86], ["25", 33, 37], ["26", 22, 36], ["27", 12, 50], ["28", 40, 50], ["29", 24, 49], ["30", 17, 38], ["31", 9, 20], ["32", 14, 74], ["33", 9, 6], ["34", 37, 2], ["35", 30, 85], ["36", 5, 87], ["37", 33, 74], ["38", 1, 20], ["39", 19, 88]], "ratio": 0.9473684210526315, "fast": 594, "exact": 627}}

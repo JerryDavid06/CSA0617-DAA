@@ -1,0 +1,29 @@
+TASK 4 ASSEMBLY LINE - actual execution
+Transfer indexing: transfer[line][j] leaves that line after station j+1.
+
+baseline: total=38, route=[1, 2, 1, 2, 2, 1]
+{'station': 2, 'choices': [{'line': 1, 'stay': 18, 'transfer': 23, 'selected': 'stay', 'optimum': 18}, {'line': 2, 'stay': 17, 'transfer': 16, 'selected': 'transfer', 'optimum': 16}]}
+{'station': 3, 'choices': [{'line': 1, 'stay': 21, 'transfer': 20, 'selected': 'transfer', 'optimum': 20}, {'line': 2, 'stay': 22, 'transfer': 27, 'selected': 'stay', 'optimum': 22}]}
+{'station': 4, 'choices': [{'line': 1, 'stay': 24, 'transfer': 28, 'selected': 'stay', 'optimum': 24}, {'line': 2, 'stay': 26, 'transfer': 25, 'selected': 'transfer', 'optimum': 25}]}
+{'station': 5, 'choices': [{'line': 1, 'stay': 32, 'transfer': 35, 'selected': 'stay', 'optimum': 32}, {'line': 2, 'stay': 30, 'transfer': 32, 'selected': 'stay', 'optimum': 30}]}
+{'station': 6, 'choices': [{'line': 1, 'stay': 36, 'transfer': 35, 'selected': 'transfer', 'optimum': 35}, {'line': 2, 'stay': 37, 'transfer': 43, 'selected': 'stay', 'optimum': 37}]}
+Transfer points: [{'after_station': 1, 'from_line': 1, 'to_line': 2}, {'after_station': 2, 'from_line': 2, 'to_line': 1}, {'after_station': 3, 'from_line': 1, 'to_line': 2}, {'after_station': 5, 'from_line': 2, 'to_line': 1}]
+Exit totals: [38, 39]
+
+one transfer 1 to 20: total=39, route=[1, 2, 2, 2, 2, 1]
+{'station': 2, 'choices': [{'line': 1, 'stay': 18, 'transfer': 23, 'selected': 'stay', 'optimum': 18}, {'line': 2, 'stay': 17, 'transfer': 16, 'selected': 'transfer', 'optimum': 16}]}
+{'station': 3, 'choices': [{'line': 1, 'stay': 21, 'transfer': 39, 'selected': 'stay', 'optimum': 21}, {'line': 2, 'stay': 22, 'transfer': 27, 'selected': 'stay', 'optimum': 22}]}
+{'station': 4, 'choices': [{'line': 1, 'stay': 25, 'transfer': 28, 'selected': 'stay', 'optimum': 25}, {'line': 2, 'stay': 26, 'transfer': 26, 'selected': 'stay', 'optimum': 26}]}
+{'station': 5, 'choices': [{'line': 1, 'stay': 33, 'transfer': 36, 'selected': 'stay', 'optimum': 33}, {'line': 2, 'stay': 31, 'transfer': 33, 'selected': 'stay', 'optimum': 31}]}
+{'station': 6, 'choices': [{'line': 1, 'stay': 37, 'transfer': 36, 'selected': 'transfer', 'optimum': 36}, {'line': 2, 'stay': 38, 'transfer': 44, 'selected': 'stay', 'optimum': 38}]}
+Transfer points: [{'after_station': 1, 'from_line': 1, 'to_line': 2}, {'after_station': 5, 'from_line': 2, 'to_line': 1}]
+Exit totals: [39, 40]
+
+Line 2 station 5 processing 5 to 50: total=39, route=[1, 2, 1, 1, 1, 1]
+{'station': 2, 'choices': [{'line': 1, 'stay': 18, 'transfer': 23, 'selected': 'stay', 'optimum': 18}, {'line': 2, 'stay': 17, 'transfer': 16, 'selected': 'transfer', 'optimum': 16}]}
+{'station': 3, 'choices': [{'line': 1, 'stay': 21, 'transfer': 20, 'selected': 'transfer', 'optimum': 20}, {'line': 2, 'stay': 22, 'transfer': 27, 'selected': 'stay', 'optimum': 22}]}
+{'station': 4, 'choices': [{'line': 1, 'stay': 24, 'transfer': 28, 'selected': 'stay', 'optimum': 24}, {'line': 2, 'stay': 26, 'transfer': 25, 'selected': 'transfer', 'optimum': 25}]}
+{'station': 5, 'choices': [{'line': 1, 'stay': 32, 'transfer': 35, 'selected': 'stay', 'optimum': 32}, {'line': 2, 'stay': 75, 'transfer': 77, 'selected': 'stay', 'optimum': 75}]}
+{'station': 6, 'choices': [{'line': 1, 'stay': 36, 'transfer': 80, 'selected': 'stay', 'optimum': 36}, {'line': 2, 'stay': 82, 'transfer': 43, 'selected': 'transfer', 'optimum': 43}]}
+Transfer points: [{'after_station': 1, 'from_line': 1, 'to_line': 2}, {'after_station': 2, 'from_line': 2, 'to_line': 1}]
+Exit totals: [39, 45]
