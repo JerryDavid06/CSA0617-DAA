@@ -1,0 +1,56 @@
+Original and incremental fixes
+python reproduce_defects.py
+ORIGINAL ALGORITHMS (PDF comment wrapping normalised only)
+Alerts: [('A4', 9), ('A3', 5), ('A3', 5), ('A5', 1), ('A5', 1)]
+Blocked: [False, False, False]
+Signature: [0, 4]
+Closest: ((0, 2), 60.440052945046304)
+Empty blocklist: None
+
+INCREMENTAL FIXES
+D1 [('A1', 3), ('A1', 3), ('A1', 3), ('A1', 3), ('A4', 9)]
+D2 [('A2', 9), ('A4', 9), ('A3', 5), ('A1', 3), ('A5', 1)]
+D3 [False, True, False]
+D4 [True, True, False] empty: False
+D5 [0, 4, 8]
+D6 [0, 8]
+D7 (None, inf)
+D8 ((0, 0), 0.0)
+D9 ((0, 5), 1.4142135623730951)
+
+CORRECTED INSERTION TRACE
+i = 1 [('A2', 9), ('A1', 3), ('A3', 5), ('A4', 9), ('A5', 1)]
+i = 2 [('A2', 9), ('A3', 5), ('A1', 3), ('A4', 9), ('A5', 1)]
+i = 3 [('A2', 9), ('A4', 9), ('A3', 5), ('A1', 3), ('A5', 1)]
+i = 4 [('A2', 9), ('A4', 9), ('A3', 5), ('A1', 3), ('A5', 1)]
+
+Exit code 0
+
+Final sample
+python sentinelops.py
+Alerts: [('A2', 9), ('A4', 9), ('A3', 5), ('A1', 3), ('A5', 1)]
+Blocked: [True, True, False]
+Signature: [0, 8]
+Closest: ((0, 5), 1.4142135623730951)
+
+Exit code 0
+
+Final tests
+python -m unittest -v test_sentinelops.py
+test_blocklist (test_sentinelops.TriageTests.test_blocklist) ... ok
+test_closest_boundaries_and_ties (test_sentinelops.TriageTests.test_closest_boundaries_and_ties) ... ok
+test_closest_sample (test_sentinelops.TriageTests.test_closest_sample) ... ok
+test_invalid_locations (test_sentinelops.TriageTests.test_invalid_locations) ... ok
+test_randomised_oracles (test_sentinelops.TriageTests.test_randomised_oracles) ... ok
+test_rounded_float_distance_tie (test_sentinelops.TriageTests.test_rounded_float_distance_tie) ... ok
+test_signature_boundaries (test_sentinelops.TriageTests.test_signature_boundaries) ... ok
+test_sort_boundaries (test_sentinelops.TriageTests.test_sort_boundaries) ... ok
+test_sort_sample_and_identity (test_sentinelops.TriageTests.test_sort_sample_and_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.084s
+
+OK
+
+Exit code 0
+
