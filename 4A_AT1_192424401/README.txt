@@ -1,17 +1,4 @@
-DAA ASSIGNMENT 4A ANSWER PACKAGE
-
-FILES
-DAA_Assignment_4A_Detailed_Answers.docx: complete answers to all six tasks.
-DAA_Assignment_4A_Reading_Copy.pdf: 26-page companion with the same content.
-DAA_Assignment_4A_Pseudocode.txt: nine language-independent algorithm/helper blocks.
-diagrams/: seven figures used in the report.
-
-FIRST PAGE
-The SIMATS letterhead uses the supplied reference image. The cover table
-updates the assessment to Assignment 4 Part I and the outcome to CO4, using
-the assignment PDF. Course code, registration number, student name and
-GitHub URL are carried over from the reference image.
-No repository upload or submission has been made.
+DAA ASSIGNMENT 4A
 
 FORMATTING
 Authored text is Times New Roman and black. Body paragraphs are justified
