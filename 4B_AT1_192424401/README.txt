@@ -1,10 +1,5 @@
-DAA ASSIGNMENT 4B DELIVERY NOTES
+DAA ASSIGNMENT 4B 
 Student: Jerry David R | Registration: 192424401
-
-Report
-- DAA_Assignment_4B_Detailed_Answers.docx: editable answer report covering all six tasks.
-- DAA_Assignment_4B_Reading_Copy.pdf: 32-page independently generated reading copy from the same content, with seven diagrams/charts. It is not an export from Word.
-- Times New Roman, black authored text, justified body paragraphs and 1.5 line spacing. The supplied institutional logos retain their original colours. Cover metadata is an editable table.
 
 Run with Python 3.10 or later from this folder
     python -m unittest -v test_algorithms.py
