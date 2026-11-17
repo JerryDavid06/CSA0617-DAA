@@ -1,17 +1,4 @@
-CSA06 CO3 KARTIQ CASE STUDY PACKAGE
-
-REPORTS
-CSA06_CO3_Detailed_Report.docx contains the full answers to parts (a)-(f).
-Formatting is Times New Roman, black text, justified body paragraphs and
-1.5 line spacing. Seven diagrams and nineteen tables are embedded.
-
-CSA06_CO3_Reading_Copy.pdf is a 20-page independently rendered companion with
-the same report content. All twenty PDF pages were visually inspected.
-It is not a Word-exported PDF. The DOCX passed structural formatting checks,
-but its pagination could not be rendered in Word: background Word access was
-denied, and automatic approval review rejected elevated application access.
-The packaged LibreOffice renderer was unavailable. Check Word pagination
-before handing in the DOCX.
+CSA06 CO3 KARTIQ CASE STUDY
 
 CODE AND EVIDENCE
 kartiq.py: stable Merge Sort, sample first-pivot partition, guarded descending
