@@ -1,6 +1,6 @@
 SENTINELOPS CSA06 CO2 ANSWER PACKAGE
 
-CSA06_CO2_Answers.docx: detailed answers to parts (a)-(e).
+CSA06_CO2_AnswersReport.docx: detailed answers to parts (a)-(e).
 sentinelops.py: final module and sample demonstration.
 test_sentinelops.py: nine unittest methods; boundaries and 400 randomized
 nearest-pair oracle trials (200 integer and 200 floating-point).
@@ -40,9 +40,3 @@ All code and measurements were actually executed. Authentic execution
 screenshots could not be captured because computer control stopped when it
 could not verify the browser address. The included records are actual text
 transcripts and measured JSON, not fabricated screen captures.
-
-SUBMISSION
-No GitHub or Google Classroom submission has been made. Follow the document's
-instructions using your own repository and course account. Review the work,
-enter your student details, and follow the assessment's assistance and
-attribution rules before signing any originality declaration.
